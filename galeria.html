@@ -1,0 +1,1438 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title id="page-title">Galería de Proyectos - Robert</title>
+    <meta name="description" id="metaDescription" content="Explora los proyectos destacados de Robert: soluciones full stack, aplicaciones web y móviles para empresas y startups." />
+    <meta property="og:title" id="ogTitle" content="Galería de Proyectos - Robert" />
+    <meta property="og:description" id="ogDescription" content="Portafolio profesional con casos de éxito, tecnologías y resultados medibles." />
+    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=Robert+Portfolio" />
+    <meta property="og:type" content="website" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Portfolio",
+      "name": "Robert - Full Stack Developer Portfolio",
+      "description": "Galería de proyectos profesionales de desarrollo web y aplicaciones móviles",
+      "url": "https://robert-portfolio.example.com/galeria",
+      "author": {
+        "@type": "Person",
+        "name": "Robert",
+        "jobTitle": "Full Stack Developer"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "250"
+      }
+    }
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1A1A1A",
+              "background-light": "#E8E8E3",
+              "background-dark": "#121212",
+              "surface-light": "#E8E8E3",
+              "surface-dark": "#1E1E1E",
+              "text-light": "#1A1A1A",
+              "text-dark": "#E8E8E3",
+              "accent-gray": "#7A7A7A",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              serif: ["DM Serif Display", "serif"],
+              display: ["Playfair Display", "serif"],
+            },
+            borderRadius: {
+              DEFAULT: "4px",
+              pill: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 4px;
+      }
+      .serif-italic {
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+      }
+
+      /* Animaciones */
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes pulse-subtle {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
+      }
+
+      .animate-in {
+        animation: slideInUp 0.6s ease-out forwards;
+      }
+
+      .modal-overlay {
+        animation: fadeIn 0.3s ease-out;
+      }
+
+      /* Card Stagger */
+      .project-card:nth-child(1) { animation-delay: 0.05s; }
+      .project-card:nth-child(2) { animation-delay: 0.1s; }
+      .project-card:nth-child(3) { animation-delay: 0.15s; }
+      .project-card:nth-child(4) { animation-delay: 0.2s; }
+      .project-card:nth-child(5) { animation-delay: 0.25s; }
+      .project-card:nth-child(6) { animation-delay: 0.3s; }
+      .project-card:nth-child(7) { animation-delay: 0.35s; }
+      .project-card:nth-child(8) { animation-delay: 0.4s; }
+      .project-card:nth-child(9) { animation-delay: 0.45s; }
+
+      /* Featured Project */
+      .featured-card {
+        grid-column: span 1;
+      }
+
+      @media (min-width: 768px) {
+        .featured-card {
+          grid-column: span 2;
+          grid-row: span 2;
+        }
+      }
+
+      /* Focus visible */
+      .project-card:focus-visible,
+      .filter-btn:focus-visible {
+        outline: 2px solid #1A1A1A;
+        outline-offset: 2px;
+      }
+
+      .dark .project-card:focus-visible,
+      .dark .filter-btn:focus-visible {
+        outline: 2px solid #E8E8E3;
+      }
+
+      /* Badge animations */
+      .badge {
+        transition: all 0.3s ease;
+      }
+
+      .badge:hover {
+        transform: scale(1.05);
+      }
+
+      /* Tech stack animation */
+      .tech-item {
+        display: inline-block;
+        animation: slideInUp 0.5s ease-out backwards;
+      }
+
+      /* Image aspect ratio */
+      .aspect-video {
+        aspect-ratio: 16 / 9;
+      }
+
+      .aspect-square {
+        aspect-ratio: 1 / 1;
+      }
+
+      /* Overlay improvements */
+      .project-overlay {
+        backdrop-filter: blur(4px);
+      }
+
+      /* Loading skeleton */
+      @keyframes skeleton-loading {
+        0% { background-position: -1000px 0; }
+        100% { background-position: 1000px 0; }
+      }
+
+      .skeleton {
+        background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+        background-size: 1000px 100%;
+        animation: skeleton-loading 2s infinite;
+      }
+
+      /* Slider de imágenes */
+      .image-slider {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 1rem;
+      }
+
+      .slider-container {
+        display: flex;
+        transition: transform 0.5s ease;
+        width: 100%;
+      }
+
+      .slider-slide {
+        min-width: 100%;
+        width: 100%;
+      }
+
+      .slider-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.9);
+        color: #1A1A1A;
+        border: none;
+        padding: 12px 16px;
+        cursor: pointer;
+        font-size: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        width: 48px;
+        height: 48px;
+      }
+
+      .slider-nav:hover {
+        background: rgba(255, 255, 255, 1);
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      .slider-nav.prev {
+        left: 12px;
+      }
+
+      .slider-nav.next {
+        right: 12px;
+      }
+
+      .slider-indicators {
+        position: absolute;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        z-index: 10;
+      }
+
+      .slider-indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+      }
+
+      .slider-indicator.active {
+        background: white;
+        width: 24px;
+        border-radius: 4px;
+      }
+
+      /* Details section */
+      #detailsContainer {
+        margin: 0;
+        transition: all 0.5s ease;
+      }
+
+      .project-details {
+        animation: slideInUp 0.6s ease-out;
+        border-top: 3px solid #1A1A1A;
+        margin-top: 3rem;
+        padding-top: 3rem;
+      }
+
+      .dark .project-details {
+        border-top-color: #E8E8E3;
+      }
+
+      .details-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+
+      .details-close-btn {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+      }
+
+      .details-close-btn:hover {
+        transform: rotate(90deg);
+      }
+    </style>
+    <script>
+      const translations = {
+        es: {
+          title: "Galería de Proyectos - Robert",
+          name: "Robert",
+          menu: "Menú",
+          galleryBtn: "Galería de proyectos",
+          themeBtn: "Tema",
+          hello: "Hola, soy Robert,",
+          role: "Desarrollador Full Stack",
+          description: "Transformando ideas en soluciones de software escalables — desarrollo full stack que captiva, compromete y entrega resultados.",
+          contactBtn: "Contactame",
+          yearsExp: "Años de Experiencia",
+          projectsDelivered: "Proyectos creados",
+          clientSatisfaction: "Satisfacción de clientes / mentores",
+          clientsWorldwide: "Equipos / proyectos colaborativos",
+          frontend: "Desarrollo Frontend",
+          frontendDesc: "Interfaces responsivas y modernas con React, Vue y Angular.",
+          backend: "Desarrollo Backend",
+          backendDesc: "APIs escalables y robustas con Node.js, Python y Java.",
+          database: "Diseño de Bases de Datos",
+          databaseDesc: "Arquitectura de datos eficiente con SQL y NoSQL.",
+          devops: "DevOps y Deployment",
+          devopsDesc: "CI/CD, Docker, Kubernetes y deployment en la nube.",
+          trustedBy: "Tecnologías Que Domino",
+          about: "Construyendo Soluciones",
+          aboutTitle: "Escalables e Innovadoras",
+          aboutDesc: "Hola, soy Robert, un desarrollador full stack apasionado por crear soluciones digitales de impacto.",
+          aboutContent1: "Con experiencia en tecnologías modernas y un profundo conocimiento de la arquitectura de software, diseño sistemas que no solo funcionan bien sino que escalan.",
+          aboutContent2: "Ya sea construyendo desde cero o refactorizando aplicaciones existentes, combino estrategia, código limpio y mejores prácticas para llevar ideas al siguiente nivel.",
+          portfolio: "Proyectos",
+          portfolioDesc: "Explora mis recientes creaciones de desarrollo full stack y descubre cómo podemos transformar tu visión en realidad.",
+          viewGallery: "Ver Galería Completa",
+          gallery: "Galería de Proyectos",
+          backToPortfolio: "Volver al Portafolio",
+          projectFilter: "Filtrar por Categoría",
+          all: "Todos",
+          footerText: "© 2024 Robert. Todos los derechos reservados.",
+          featured: "Destacado",
+          viewProject: "Ver Proyecto",
+          liveDemo: "Demo",
+          repository: "Código",
+          status: "Estado",
+          client: "Cliente",
+          year: "Año",
+          tech: "Tecnologías",
+          impact: "Impacto",
+          production: "En producción",
+          mvp: "MVP",
+          concept: "Concepto",
+          inProgress: "En progreso",
+          startup: "Startup",
+          enterprise: "Empresa",
+          freelance: "Freelance",
+          personal: "Personal"
+        },
+        en: {
+          title: "Project Gallery - Robert",
+          name: "Robert",
+          menu: "Menu",
+          galleryBtn: "Project Gallery",
+          themeBtn: "Theme",
+          hello: "Hey, I'm Robert,",
+          role: "Full Stack Developer",
+          description: "Transforming ideas into scalable software solutions — full stack development that captivates, engages, and delivers results.",
+          contactBtn: "Contact Me",
+          yearsExp: "Years of Experience",
+          projectsDelivered: "Projects Delivered",
+          clientSatisfaction: "Client Satisfaction",
+          clientsWorldwide: "Clients Worldwide",
+          frontend: "Frontend Development",
+          frontendDesc: "Responsive and modern interfaces with React, Vue and Angular.",
+          backend: "Backend Development",
+          backendDesc: "Scalable and robust APIs with Node.js, Python and Java.",
+          database: "Database Design",
+          databaseDesc: "Efficient data architecture with SQL and NoSQL.",
+          devops: "DevOps and Deployment",
+          devopsDesc: "CI/CD, Docker, Kubernetes and cloud deployment.",
+          trustedBy: "Technologies I Master",
+          about: "Building Scalable",
+          aboutTitle: "and Innovative Solutions",
+          aboutDesc: "Hey, I'm Robert, a full stack developer passionate about creating impactful digital solutions.",
+          aboutContent1: "With experience in modern technologies and a deep understanding of software architecture, I design systems that not only work well but scale.",
+          aboutContent2: "Whether building from scratch or refactoring existing applications, I combine strategy, clean code and best practices to take ideas to the next level.",
+          portfolio: "Portfolio",
+          portfolioDesc: "Explore my recent full stack development creations and discover how we can transform your vision into reality.",
+          viewGallery: "View Complete Gallery",
+          gallery: "Project Gallery",
+          backToPortfolio: "Back to Portfolio",
+          projectFilter: "Filter by Category",
+          all: "All",
+          footerText: "© 2024 Robert. All rights reserved.",
+          featured: "Featured",
+          viewProject: "View Project",
+          liveDemo: "Demo",
+          repository: "Code",
+          status: "Status",
+          client: "Client",
+          year: "Year",
+          tech: "Technologies",
+          impact: "Impact",
+          production: "In production",
+          mvp: "MVP",
+          concept: "Concept",
+          inProgress: "In progress",
+          startup: "Startup",
+          enterprise: "Enterprise",
+          freelance: "Freelance",
+          personal: "Personal"
+        },
+        pt: {
+          title: "Galeria de Projetos - Robert",
+          name: "Robert",
+          menu: "Menu",
+          galleryBtn: "Galeria de Projetos",
+          themeBtn: "Tema",
+          hello: "Oi, sou Robert,",
+          role: "Desenvolvedor Full Stack",
+          description: "Transformando ideias em soluções de software escaláveis — desenvolvimento full stack que cativa, envolve e entrega resultados.",
+          contactBtn: "Entre em Contato",
+          yearsExp: "Anos de Experiência",
+          projectsDelivered: "Projetos Entregues",
+          clientSatisfaction: "Satisfação do Cliente",
+          clientsWorldwide: "Clientes em Todo Mundo",
+          frontend: "Desenvolvimento Frontend",
+          frontendDesc: "Interfaces responsivas e modernas com React, Vue e Angular.",
+          backend: "Desenvolvimento Backend",
+          backendDesc: "APIs escaláveis e robustas com Node.js, Python e Java.",
+          database: "Design de Banco de Dados",
+          databaseDesc: "Arquitetura de dados eficiente com SQL e NoSQL.",
+          devops: "DevOps e Deployment",
+          devopsDesc: "CI/CD, Docker, Kubernetes e deployment em nuvem.",
+          trustedBy: "Tecnologias que Domino",
+          about: "Construindo Soluções",
+          aboutTitle: "Escaláveis e Inovadoras",
+          aboutDesc: "Oi, sou Robert, um desenvolvedor full stack apaixonado por criar soluções digitais impactantes.",
+          aboutContent1: "Com experiência em tecnologias modernas e profundo conhecimento de arquitetura de software, projeto sistemas que não apenas funcionam bem, mas escalam.",
+          aboutContent2: "Seja construindo do zero ou refatorando aplicações existentes, combino estratégia, código limpo e melhores práticas para levar ideias ao próximo nível.",
+          portfolio: "Portfólio",
+          portfolioDesc: "Explore minhas recentes criações de desenvolvimento full stack e descubra como podemos transformar sua visão em realidade.",
+          viewGallery: "Ver Galeria Completa",
+          gallery: "Galeria de Projetos",
+          backToPortfolio: "Voltar ao Portfólio",
+          projectFilter: "Filtrar por Categoria",
+          all: "Todos",
+          footerText: "© 2024 Robert. Todos os direitos reservados.",
+          featured: "Destaque",
+          viewProject: "Ver Projeto",
+          liveDemo: "Demo",
+          repository: "Código",
+          status: "Status",
+          client: "Cliente",
+          year: "Ano",
+          tech: "Tecnologias",
+          impact: "Impacto",
+          production: "Em producao",
+          mvp: "MVP",
+          concept: "Conceito",
+          inProgress: "Em progresso",
+          startup: "Startup",
+          enterprise: "Empresa",
+          freelance: "Freelance",
+          personal: "Pessoal"
+        },
+        fr: {
+          title: "Galerie de Projets - Robert",
+          name: "Robert",
+          menu: "Menu",
+          galleryBtn: "Galerie de Projets",
+          themeBtn: "Thème",
+          hello: "Salut, je suis Robert,",
+          role: "Développeur Full Stack",
+          description: "Transformer des idées en solutions logicielles évolutives — développement full stack qui captive, engage et livre des résultats.",
+          contactBtn: "Me Contacter",
+          yearsExp: "Années d'Expérience",
+          projectsDelivered: "Projets Livrés",
+          clientSatisfaction: "Satisfaction Client",
+          clientsWorldwide: "Clients dans le Monde",
+          frontend: "Développement Frontend",
+          frontendDesc: "Interfaces réactives et modernes avec React, Vue et Angular.",
+          backend: "Développement Backend",
+          backendDesc: "APIs évolutives et robustes avec Node.js, Python et Java.",
+          database: "Conception de Base de Données",
+          databaseDesc: "Architecture de données efficace avec SQL et NoSQL.",
+          devops: "DevOps et Déploiement",
+          devopsDesc: "CI/CD, Docker, Kubernetes et déploiement cloud.",
+          trustedBy: "Technologies que je Maîtrise",
+          about: "Construire des Solutions",
+          aboutTitle: "Évolutives et Innovantes",
+          aboutDesc: "Salut, je suis Robert, un développeur full stack passionné par la création de solutions numériques impactantes.",
+          aboutContent1: "Avec une expérience des technologies modernes et une profonde compréhension de l'architecture logicielle, je conçois des systèmes qui non seulement fonctionnent bien mais évoluent.",
+          aboutContent2: "Qu'il s'agisse de construire à partir de zéro ou de refactoriser des applications existantes, je combine la stratégie, le code propre et les meilleures pratiques pour porter les idées au niveau supérieur.",
+          portfolio: "Portfolio",
+          portfolioDesc: "Explorez mes récentes créations de développement full stack et découvrez comment nous pouvons transformer votre vision en réalité.",
+          viewGallery: "Voir la Galerie Complète",
+          gallery: "Galerie de Projets",
+          backToPortfolio: "Retour au Portfolio",
+          projectFilter: "Filtrer par Catégorie",
+          all: "Tous",
+          footerText: "© 2024 Robert. Tous droits réservés.",
+          featured: "Vedette",
+          viewProject: "Voir le Projet",
+          liveDemo: "Démo",
+          repository: "Code",
+          status: "Statut",
+          client: "Client",
+          year: "Année",
+          tech: "Technologies",
+          impact: "Impact",
+          production: "En production",
+          mvp: "MVP",
+          concept: "Concept",
+          inProgress: "En cours",
+          startup: "Startup",
+          enterprise: "Entreprise",
+          freelance: "Freelance",
+          personal: "Personnel"
+        },
+        de: {
+          title: "Projektgalerie - Robert",
+          name: "Robert",
+          menu: "Menü",
+          galleryBtn: "Projektgalerie",
+          themeBtn: "Thema",
+          hello: "Hallo, ich bin Robert,",
+          role: "Full-Stack-Entwickler",
+          description: "Ideen in skalierbare Softwarelösungen umwandeln — Full-Stack-Entwicklung, die fasziniert, bindet und Ergebnisse liefert.",
+          contactBtn: "Kontaktiere mich",
+          yearsExp: "Jahre Erfahrung",
+          projectsDelivered: "Projekte Abgeliefert",
+          clientSatisfaction: "Kundenzufriedenheit",
+          clientsWorldwide: "Kunden weltweit",
+          frontend: "Frontend-Entwicklung",
+          frontendDesc: "Responsive und moderne Benutzeroberflächen mit React, Vue und Angular.",
+          backend: "Backend-Entwicklung",
+          backendDesc: "Skalierbare und robuste APIs mit Node.js, Python und Java.",
+          database: "Datenbankdesign",
+          databaseDesc: "Effiziente Datenbankarchitektur mit SQL und NoSQL.",
+          devops: "DevOps und Bereitstellung",
+          devopsDesc: "CI/CD, Docker, Kubernetes und Cloud-Bereitstellung.",
+          trustedBy: "Technologien, die ich Beherrsche",
+          about: "Skalierbare Lösungen",
+          aboutTitle: "und innovative Lösungen",
+          aboutDesc: "Hallo, ich bin Robert, ein Full-Stack-Entwickler, der leidenschaftlich daran arbeitet, wirkungsvolle digitale Lösungen zu schaffen.",
+          aboutContent1: "Mit Erfahrung in modernen Technologien und tiefem Verständnis der Softwarearchitektur entwerfe ich Systeme, die nicht nur gut funktionieren, sondern skalieren.",
+          aboutContent2: "Ob von Grund auf neu bauen oder vorhandene Anwendungen umgestalten, ich kombiniere Strategie, sauberen Code und Best Practices, um Ideen auf die nächste Stufe zu bringen.",
+          portfolio: "Portfolio",
+          portfolioDesc: "Erkunden Sie meine neuesten Full-Stack-Entwicklungsprojekte und entdecken Sie, wie wir Ihre Vision in die Realität umsetzen können.",
+          viewGallery: "Vollständige Galerie Anzeigen",
+          gallery: "Projektgalerie",
+          backToPortfolio: "Zurück zum Portfolio",
+          projectFilter: "Nach Kategorie filtern",
+          all: "Alle",
+          footerText: "© 2024 Robert. Alle Rechte vorbehalten.",
+          featured: "Empfohlen",
+          viewProject: "Projekt anzeigen",
+          liveDemo: "Demo",
+          repository: "Code",
+          status: "Status",
+          client: "Kunde",
+          year: "Jahr",
+          tech: "Technologien",
+          impact: "Auswirkung",
+          production: "In Produktion",
+          mvp: "MVP",
+          concept: "Konzept",
+          inProgress: "In Arbeit",
+          startup: "Startup",
+          enterprise: "Unternehmen",
+          freelance: "Freiberufler",
+          personal: "Persönlich"
+        },
+        ja: {
+          title: "プロジェクトギャラリー - Robert",
+          name: "Robert",
+          menu: "メニュー",
+          galleryBtn: "プロジェクトギャラリー",
+          themeBtn: "テーマ",
+          hello: "こんにちは、私はロバートです",
+          role: "フルスタック開発者",
+          description: "アイデアをスケーラブルなソフトウェアソリューションに変える — エンゲージし、結果を提供するフルスタック開発。",
+          contactBtn: "お問い合わせ",
+          yearsExp: "年の経験",
+          projectsDelivered: "プロジェクト完了",
+          clientSatisfaction: "顧客満足度",
+          clientsWorldwide: "世界中のクライアント",
+          frontend: "フロントエンド開発",
+          frontendDesc: "React、Vue、Angularを使用した反応性の高い最新のインターフェイス。",
+          backend: "バックエンド開発",
+          backendDesc: "Node.js、Python、Javaを使用したスケーラブルで堅牢なAPI。",
+          database: "データベース設計",
+          databaseDesc: "SQLおよびNoSQLを使用した効率的なデータアーキテクチャ。",
+          devops: "DevOpsとデプロイメント",
+          devopsDesc: "CI/CD、Docker、Kubernetes、クラウドデプロイメント。",
+          trustedBy: "精通している技術",
+          about: "スケーラブルなソリューション",
+          aboutTitle: "と革新的なソリューション",
+          aboutDesc: "こんにちは、私はロバートです。影響力のあるデジタルソリューションの作成に情熱を持つフルスタック開発者です。",
+          aboutContent1: "最新の技術の経験とソフトウェアアーキテクチャの深い理解を備えた、よく機能し、スケールするシステムを設計します。",
+          aboutContent2: "最初から構築する場合でも、既存のアプリケーションをリファクタリングする場合でも、戦略、クリーンコード、ベストプラクティスを組み合わせて、アイデアを次のレベルに引き上げます。",
+          portfolio: "ポートフォリオ",
+          portfolioDesc: "最近のフルスタック開発作品を探索して、あなたのビジョンを現実にどのように変えることができるかを発見してください。",
+          viewGallery: "完全なギャラリーを表示",
+          gallery: "プロジェクトギャラリー",
+          backToPortfolio: "ポートフォリオに戻る",
+          projectFilter: "カテゴリでフィルタ",
+          all: "すべて",
+          footerText: "© 2024 Robert. すべての権利が予約されています。",
+          featured: "注目",
+          viewProject: "プロジェクトを表示",
+          liveDemo: "デモ",
+          repository: "コード",
+          status: "ステータス",
+          client: "クライアント",
+          year: "年",
+          tech: "テクノロジー",
+          impact: "影響",
+          production: "本番稼働中",
+          mvp: "MVP",
+          concept: "コンセプト",
+          inProgress: "進行中",
+          startup: "スタートアップ",
+          enterprise: "エンタープライズ",
+          freelance: "フリーランス",
+          personal: "個人"
+        }
+      };
+
+      let currentLang = localStorage.getItem("site_language_v1") || "es";
+
+      function updateLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem("site_language_v1", lang);
+        
+        const t = translations[lang];
+        document.documentElement.lang = lang;
+        document.getElementById("page-title").textContent = t.title;
+        document.getElementById("langDisplay").textContent = lang.toUpperCase();
+        
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+          const key = el.getAttribute("data-i18n");
+          if (t[key]) {
+            el.textContent = t[key];
+          }
+        });
+      }
+
+      function initLanguageSelector() {
+        const LANG_BTN = document.getElementById("langBtn");
+        const LANG_MENU = document.getElementById("langMenu");
+        const LANG_OPTIONS = document.querySelectorAll(".lang-option");
+
+        if (!LANG_BTN) return;
+
+        function showLangMenu() {
+          LANG_MENU.classList.remove("hidden");
+          LANG_MENU.classList.add("block");
+          LANG_BTN.setAttribute("aria-expanded", "true");
+          document.addEventListener("click", onDocClickLang);
+        }
+
+        function hideLangMenu() {
+          LANG_MENU.classList.add("hidden");
+          LANG_MENU.classList.remove("block");
+          LANG_BTN.setAttribute("aria-expanded", "false");
+          LANG_BTN.focus();
+          document.removeEventListener("click", onDocClickLang);
+        }
+
+        function onDocClickLang(e) {
+          if (!LANG_MENU.contains(e.target) && !LANG_BTN.contains(e.target))
+            hideLangMenu();
+        }
+
+        LANG_BTN.addEventListener("click", function (e) {
+          e.stopPropagation();
+          if (LANG_MENU.classList.contains("hidden")) showLangMenu();
+          else hideLangMenu();
+        });
+
+        LANG_OPTIONS.forEach(option => {
+          option.addEventListener("click", function () {
+            const lang = this.getAttribute("data-lang");
+            updateLanguage(lang);
+            hideLangMenu();
+          });
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && !LANG_MENU.classList.contains("hidden")) {
+            hideLangMenu();
+          }
+        });
+      }
+    </script>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-sans transition-colors duration-300 antialiased"
+  >
+    <header
+      class="w-full px-6 py-6 md:px-12 flex justify-between items-center fixed top-0 left-0 z-50 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-sm"
+    >
+      <div class="flex items-center gap-2">
+        <div
+          class="w-2.5 h-2.5 bg-primary dark:bg-white rounded-full"
+          aria-hidden="true"
+        ></div>
+        <span class="font-bold tracking-widest text-sm uppercase" data-i18n="name">Robert</span>
+      </div>
+
+      <!-- Language Selector -->
+      <div class="relative">
+        <button
+          id="langBtn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="langMenu"
+          class="bg-primary text-white dark:bg-white dark:text-primary px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase flex items-center gap-2 hover:opacity-90 transition-opacity focus:outline-none focus:ring-4 focus:ring-accent-gray/20"
+        >
+          <span id="langDisplay">ES</span>
+          <span class="material-icons text-base" aria-hidden="true">language</span>
+        </button>
+
+        <!-- Language Dropdown -->
+        <div
+          id="langMenu"
+          class="hidden absolute right-20 mt-3 w-40 rounded-xl shadow-lg ring-1 ring-black/5 bg-surface-light dark:bg-surface-dark border border-[rgba(0,0,0,0.04)] dark:border-[rgba(255,255,255,0.03)] p-3"
+          role="menu"
+          aria-label="Selector de idioma"
+        >
+          <div class="flex flex-col gap-2">
+            <button type="button" class="lang-option w-full text-left px-3 py-2 rounded-md text-sm font-medium bg-transparent hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)] transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gray/20" data-lang="es" role="menuitem">🇪🇸 Español</button>
+            <button type="button" class="lang-option w-full text-left px-3 py-2 rounded-md text-sm font-medium bg-transparent hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)] transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gray/20" data-lang="en" role="menuitem">🇺🇸 English</button>
+            <button type="button" class="lang-option w-full text-left px-3 py-2 rounded-md text-sm font-medium bg-transparent hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)] transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gray/20" data-lang="pt" role="menuitem">🇵🇹 Português</button>
+            <button type="button" class="lang-option w-full text-left px-3 py-2 rounded-md text-sm font-medium bg-transparent hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)] transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gray/20" data-lang="fr" role="menuitem">🇫🇷 Français</button>
+            <button type="button" class="lang-option w-full text-left px-3 py-2 rounded-md text-sm font-medium bg-transparent hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)] transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gray/20" data-lang="de" role="menuitem">🇩🇪 Deutsch</button>
+            <button type="button" class="lang-option w-full text-left px-3 py-2 rounded-md text-sm font-medium bg-transparent hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)] transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gray/20" data-lang="ja" role="menuitem">🇯🇵 日本語</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu button -->
+      <div class="relative">
+        <button
+          id="menuBtn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mainMenu"
+          class="bg-primary text-white dark:bg-white dark:text-primary px-5 py-2 rounded-full text-xs font-bold tracking-widest uppercase flex items-center gap-2 hover:opacity-90 transition-opacity focus:outline-none focus:ring-4 focus:ring-accent-gray/20"
+        >
+          <span data-i18n="menu">Menú</span>
+          <span class="material-icons text-base" aria-hidden="true">menu</span>
+        </button>
+
+        <!-- Dropdown panel -->
+        <div
+          id="mainMenu"
+          class="hidden absolute right-0 mt-3 w-56 rounded-xl shadow-lg ring-1 ring-black/5 bg-surface-light dark:bg-surface-dark border border-[rgba(0,0,0,0.04)] dark:border-[rgba(255,255,255,0.03)] p-3"
+          role="menu"
+          aria-label="Menu principal"
+        >
+          <div class="flex flex-col gap-2">
+            <a
+              href="index.html"
+              type="button"
+              class="w-full text-left px-3 py-2 rounded-md text-sm font-medium bg-transparent hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)] transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gray/20"
+              role="menuitem" data-i18n="backToPortfolio"
+            >
+              Volver al Portafolio
+            </a>
+
+            <button
+              type="button"
+              id="themeToggleBtn"
+              class="w-full flex items-center justify-between gap-3 px-3 py-2 rounded-md text-sm font-medium bg-transparent hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)] transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gray/20"
+              role="menuitem"
+              aria-pressed="false"
+            >
+              <span data-i18n="themeBtn">Tema</span>
+              <span
+                id="themeIcon"
+                class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white text-primary dark:bg-transparent dark:text-text-dark"
+                aria-hidden="true"
+              >
+                <span class="material-icons text-base">dark_mode</span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const MENU_BTN = document.getElementById("menuBtn");
+        const MAIN_MENU = document.getElementById("mainMenu");
+        const THEME_BTN = document.getElementById("themeToggleBtn");
+        const THEME_ICON = document.getElementById("themeIcon");
+        const THEME_KEY = "site_theme_v1";
+        const docEl = document.documentElement;
+
+        function showMenu() {
+          MAIN_MENU.classList.remove("hidden");
+          MAIN_MENU.classList.add("block");
+          MENU_BTN.setAttribute("aria-expanded", "true");
+          document.addEventListener("click", onDocClick);
+        }
+
+        function hideMenu() {
+          MAIN_MENU.classList.add("hidden");
+          MAIN_MENU.classList.remove("block");
+          MENU_BTN.setAttribute("aria-expanded", "false");
+          MENU_BTN.focus();
+          document.removeEventListener("click", onDocClick);
+        }
+
+        function toggleMenu() {
+          if (MAIN_MENU.classList.contains("hidden")) showMenu();
+          else hideMenu();
+        }
+
+        function onDocClick(e) {
+          if (!MAIN_MENU.contains(e.target) && !MENU_BTN.contains(e.target))
+            hideMenu();
+        }
+
+        MENU_BTN.addEventListener("click", function (e) {
+          e.stopPropagation();
+          toggleMenu();
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && !MAIN_MENU.classList.contains("hidden")) {
+            hideMenu();
+          }
+        });
+
+        window.addEventListener("resize", function () {
+          if (
+            window.innerWidth >= 1024 &&
+            !MAIN_MENU.classList.contains("hidden")
+          ) {
+            hideMenu();
+          }
+        });
+
+        function applyTheme(theme) {
+          if (theme === "dark") {
+            docEl.classList.add("dark");
+            THEME_BTN.setAttribute("aria-pressed", "true");
+            THEME_ICON.innerHTML =
+              '<span class="material-icons text-base">light_mode</span>';
+          } else {
+            docEl.classList.remove("dark");
+            THEME_BTN.setAttribute("aria-pressed", "false");
+            THEME_ICON.innerHTML =
+              '<span class="material-icons text-base">dark_mode</span>';
+          }
+          localStorage.setItem(THEME_KEY, theme);
+        }
+
+        (function initTheme() {
+          const saved = localStorage.getItem(THEME_KEY);
+          if (saved === "dark" || saved === "light") applyTheme(saved);
+          else {
+            const prefersDark =
+              window.matchMedia &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches;
+            applyTheme(prefersDark ? "dark" : "light");
+          }
+        })();
+
+        THEME_BTN.addEventListener("click", function () {
+          const isDark = docEl.classList.contains("dark");
+          applyTheme(isDark ? "light" : "dark");
+        });
+
+        updateLanguage(currentLang);
+        initLanguageSelector();
+      });
+    </script>
+
+    <main class="w-full pt-24 px-6 md:px-12 max-w-7xl mx-auto space-y-24 md:space-y-32">
+      <section class="space-y-8">
+        <div class="flex justify-between items-center mb-8 flex-wrap gap-4">
+          <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary dark:text-white uppercase" data-i18n="gallery">Galería de Proyectos</h1>
+          <a href="index.html" class="flex items-center gap-2 text-primary dark:text-white hover:opacity-70 transition-opacity text-sm font-bold uppercase">
+            <span class="material-icons text-base">arrow_back</span>
+            <span data-i18n="backToPortfolio">Volver al Portafolio</span>
+          </a>
+        </div>
+
+        <!-- Filtros -->
+        <div class="flex flex-wrap gap-3">
+          <button class="filter-btn px-6 py-2 rounded-full text-xs font-bold uppercase bg-primary text-white dark:bg-white dark:text-primary transition-all focus:outline-none" data-filter="all" data-i18n="all">Todos</button>
+          <button class="filter-btn px-6 py-2 rounded-full text-xs font-bold uppercase bg-transparent border-2 border-primary dark:border-white text-primary dark:text-white hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-primary transition-all focus:outline-none" data-filter="frontend" data-i18n="frontend">Frontend</button>
+          <button class="filter-btn px-6 py-2 rounded-full text-xs font-bold uppercase bg-transparent border-2 border-primary dark:border-white text-primary dark:text-white hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-primary transition-all focus:outline-none" data-filter="backend" data-i18n="backend">Backend</button>
+          <button class="filter-btn px-6 py-2 rounded-full text-xs font-bold uppercase bg-transparent border-2 border-primary dark:border-white text-primary dark:text-white hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-primary transition-all focus:outline-none" data-filter="fullstack" data-i18n="fullstack">Full Stack</button>
+        </div>
+
+        <!-- Galería de Proyectos -->
+        <div id="detailsContainer"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectGrid">
+          <!-- Las tarjetas se generarán dinámicamente con JavaScript -->
+        </div>
+      </section>
+
+    <footer
+      class="py-12 border-t border-gray-300 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center text-xs text-accent-gray gap-4 mt-24"
+    >
+      <p data-i18n="footerText">© 2024 Robert. Todos los derechos reservados.</p>
+      <div
+        class="flex gap-6 uppercase tracking-wider font-semibold text-primary dark:text-white"
+      >
+        <a class="hover:opacity-60 transition-opacity" href="https://github.com/Paquito207">GitHub</a>
+      </div>
+    </footer>
+    </main>
+
+    <script>
+      // Datos de proyectos detallados (con múltiples imágenes)
+      const projectsData = {
+        1: {
+          name: "TETSUO - Creative Portfolio",
+          description: "Plantilla de portafolio editorial oscuro y minimalista. Diseño web moderno con tipografía impactante, navegación intuitiva y componentes reutilizables. Showcase de habilidades frontend con enfoque en experiencia de usuario, responsividad y estética visual contemporánea.",
+          role: "Frontend Developer",
+          status: "Concepto",
+          year: "2026",
+          client: "Proyecto Personal",
+          clientType: "Personal",
+          impact: "Diseño editorial profesional, navegación fluida",
+          tech: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
+          category: "frontend",
+          gradient: "from-orange-600 to-red-600",
+          images: ["files/kl9.png", "files/kl9-1.png", "files/kl9-2.png"],
+          liveUrl: "https://tetsuo-portfolio.example.com",
+          repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/TETSUO%20-%20Creative%20Portfolio/163.html"
+        },
+        2: {
+          name: "Edura - Online Education Platform",
+          description: "Plantilla de plataforma educativa digital. Interfaz moderna para conectar docentes y estudiantes con aulas virtuales, evaluaciones y herramientas colaborativas. Diseño responsivo orientado a accesibilidad, usabilidad y experiencia educativa optimizada para móviles y desktop.",
+          role: "Frontend Developer",
+          status: "Concepto",
+          year: "2026",
+          client: "Proyecto Personal",
+          clientType: "Empresa",
+          impact: "Plataforma educativa accesible y moderna",
+          tech: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS", "Material Icons"],
+          category: "frontend",
+          gradient: "from-blue-600 to-purple-600",
+          images: ["files/kl12.png", "files/kl12-1.png", "files/kl12-2.png"],
+          liveUrl: "https://edura-platform.example.com",
+          repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/Edura%20-%20Online%20Education%20Platform/267.html"
+        },
+        3: {
+          name: "Bogchabor - Tropical Interior Decor",
+          description: "Plantilla de e-commerce para decoración y diseño interior. Galería visual premium de productos, portafolio de servicios y contacto directo. Diseño elegante con paleta de colores naturales, navegación fluida y experiencia de usuario optimizada para convertir visitantes en clientes.",
+          role: "Frontend Developer",
+          status: "Concepto",
+          year: "2026",
+          client: "Proyecto Personal",
+          clientType: "Empresa",
+          impact: "Diseño premium y experiencia visual optimizada",
+          tech: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
+          category: "frontend",
+          gradient: "from-green-600 to-emerald-600",
+          images: ["files/kl13.png", "files/kl13-1.png", "files/kl13-2.png"],
+          liveUrl: "https://bogchabor-decor.example.com",
+          repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/Bogchabor%20-%20Tropical%20Interior%20Decor/262.html"
+        },
+        4: {
+          name: "Global Logistics - Freight Solutions",
+          description: "Plantilla de plataforma logística y supply chain. Interfaz profesional para seguimiento de envios, cotizaciones y gestión de carga. Diseño oscuro moderno con herramientas integradas, reportes en tiempo real y dashboard intuitivo para operadores y clientes.",
+          role: "Frontend Developer",
+          status: "Concepto",
+          year: "2026",
+          client: "Proyecto Personal",
+          clientType: "Empresa",
+          impact: "Plataforma logística profesional",
+          tech: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
+          category: "frontend",
+          gradient: "from-blue-900 to-slate-700",
+          images: ["files/kl14.png", "files/kl14-1.png", "files/kl14-2.png"],
+          liveUrl: "https://global-logistics.example.com",
+          repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/Global%20Logistics%20-%20Freight%20Solutions/243.html"
+        },
+        5: {
+          name: "Stoicism Philosophy Editorial",
+          description: "Plantilla editorial para contenido intelectual y filosófico. Diseño minimalista y sofisticado con tipografía editorial profesional, estructura de cuadrícula moderna y navegación clara. Enfocada en presentar contenido de calidad con una estética refinada y experiencia de lectura optimizada.",
+          role: "Frontend Developer",
+          status: "Concepto",
+          year: "2026",
+          client: "Proyecto Personal",
+          clientType: "Personal",
+          impact: "Plataforma editorial premium",
+          tech: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
+          category: "frontend",
+          gradient: "from-slate-700 to-gray-800",
+          images: ["files/kl15.png", "files/kl15-1.png", "files/kl15-2.png"],
+          liveUrl: "https://stoicism-editorial.example.com",
+          repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/Stoicism%20Philosophy%20Editorial/236.html"
+        },
+        6: {
+          name: "CloudSync",
+          description: "Plantilla frontend para servicio de sincronización en la nube. Interfaz intuitiva para gestión de archivos, dispositivos conectados y configuración de sincronización. Diseño moderno con sección de características, precios y onboarding para usuarios nuevos.",
+          role: "Frontend Developer",
+          status: "Concepto",
+          year: "2026",
+          client: "Proyecto Personal",
+          clientType: "Empresa",
+          impact: "50M+ archivos sincronizados",
+          tech: ["Node.js", "AWS S3", "RabbitMQ", "gRPC"],
+          category: "frontend",
+          gradient: "from-cyan-600 to-blue-600",
+          images: ["files/kl11.png", "files/kl11-1.png", "files/kl11-2.png"],
+          liveUrl: "https://cloudsync.example.com",
+          repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/CloudSync/291.html"
+        },
+        7: {
+          name: "To Do List - PRUEBA-TECNICA",
+          description: "Mini sistema de gestión de tareas full-stack. Permite crear, completar, eliminar y cambiar prioridades de tareas. Características incluyen operaciones CRUD, exportación a CSV/JSON y operaciones en lote. API REST robusta construida con Spring Boot.",
+          role: "Full Stack Developer",
+          status: "Concepto",
+          year: "2026",
+          client: "Proyecto Personal",
+          clientType: "Personal",
+          impact: "Sistema de gestión de tareas funcional",
+          tech: ["Java 17", "Spring Boot 3.5.8", "HTML5", "CSS3", "JavaScript"],
+          category: "fullstack",
+          gradient: "from-amber-600 to-orange-600",
+          images: ["files/kl16.png", "files/kl16-1.png", "files/kl16-2.png"],
+          liveUrl: "https://todo-list-demo.example.com",
+          repoUrl: "https://github.com/Paquito207/PRUEBA-TECNICA"
+        },
+        8: {
+          name: "Calculadora - React",
+          description: "Aplicación web interactiva de calculadora desarrollada con React. Soporta operaciones básicas (suma, resta, multiplicación, división), manejo de decimales, cambio de signo y gestión de errores. Arquitectura con componentes reutilizables (Button, Display, History, Keypad) y interfaz moderna.",
+          role: "Frontend Developer",
+          status: "Concepto",
+          year: "2026",
+          client: "Proyecto Personal",
+          clientType: "Personal",
+          impact: "Calculadora web funcional y responsiva",
+          tech: ["React", "Vite", "JavaScript", "CSS3"],
+          category: "frontend",
+          gradient: "from-lime-600 to-green-600",
+          images: ["files/kl17.png", "files/kl17-1.png", "files/kl17-2.png"],
+          liveUrl: "https://calculator-app.example.com",
+          repoUrl: "https://github.com/Paquito207/CALCULADORA"
+        },
+        9: {
+          name: "Videojuego 3D - Unity",
+          description: "Proyecto de videojuego 3D desarrollado en Unity con C#. Juego inmersivo con gráficos 3D profesionales, mecánicas de gameplay complejas y sistema de niveles. Utiliza Unity Cloud para gestión de proyecto y colaboración. Proyecto conceptual sin enlace a repositorio público.",
+          role: "Game Developer",
+          status: "Proyecto de Graduacion - Etapa Lectiva",
+          year: "2025",
+          client: "Personal",
+          clientType: "SENA",
+          impact: "Proyecto de desarrollo de videojuego 3D",
+          tech: ["Unity", "C#", "Unity Cloud", "3D Graphics"],
+          category: "fullstack",
+          gradient: "from-violet-600 to-purple-600",
+          images: ["files/hm.png"],
+          video: "./files/hommy.mp4",
+          liveUrl: "#",
+          repoUrl: ""
+        },
+        10: {
+          name: "API CRUD - Go & Bee Framework",
+          description: "API REST de prueba desarrollada en Go utilizando el framework Bee. Sistema completo de operaciones CRUD con arquitectura escalable y rendimiento optimizado. Implementación de buenas prácticas en desarrollo de APIs incluyendo validación de datos, manejo de errores y documentación completa. Proyecto demostrativo de desarrollo de backend moderno.",
+          role: "Backend Developer",
+          status: "Practica",
+          year: "2024",
+          client: "Freelance",
+          clientType: "SENA",
+          impact: "API de prueba funcional y optimizada",
+          tech: ["Go", "Bee Framework", "REST API", "Golang"],
+          category: "backend",
+          gradient: "from-cyan-600 to-blue-600",
+          images: ["files/go.png"],
+          liveUrl: "#",
+          repoUrl: "https://github.com/Paquito207/api_crud_de-prueba/tree/develop"
+        },
+        11: {
+          name: "Verdant Life - Organic Lifestyle",
+          description: "Plantilla de plataforma de estilo de vida sostenible y bienestar. Catálogo de productos orgánicos, blog de salud natural y servicios de consultoría. Diseño moderno con paleta de colores naturales, navegación intuitiva y enfoque en sustentabilidad y responsabilidad ambiental.",
+          role: "Frontend Developer",
+          status: "Concepto",
+          year: "2026",
+          client: "Proyecto Personal",
+          clientType: "Empresa",
+          impact: "Plataforma de estilo de vida premium",
+          tech: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
+          category: "frontend",
+          gradient: "from-green-600 to-emerald-600",
+          images: ["files/kl18.png", "files/kl18-1.png", "files/kl18-2.png"],
+          liveUrl: "https://verdant-life.example.com",
+          repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/Verdant%20Life%20-%20Organic%20Lifestyle/118.html"
+        },
+        12: {
+          name: "Eco-Nature Dashboard",
+          description: "Plantilla de dashboard de análisis ambiental. Visualización de métricas mediante gráficos interactivos, widgets informativos y mapas de datos. Interfaz profesional con tema claro/oscuro, diseño responsivo y herramientas de reportes para monitoreo ambiental.",
+          role: "Frontend Developer",
+          status: "Concepto",
+          year: "2026",
+          client: "Proyecto Personal",
+          clientType: "Empresa",
+          impact: "Dashboard ambiental profesional",
+          tech: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
+          category: "frontend",
+          gradient: "from-teal-600 to-cyan-600",
+          images: ["files/kl19.png"],
+          liveUrl: "https://eco-nature-dashboard.example.com",
+          repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/Eco-Nature%20Dashboard/275.html"
+        },
+        13: {
+          name: "Tonevan Music",
+          description: "Plantilla de plataforma de streaming de música. Reproductor de audio integrado, gestión de playlists y descubrimiento de artistas. Diseño premium con visualizadores de audio, navegación fluida e interfaz optimizada para escucha inmersiva en todos los dispositivos.",
+          role: "Frontend Developer",
+          status: "Concepto",
+          year: "2026",
+          client: "Proyecto Personal",
+          clientType: "Startup",
+          impact: "Plataforma musical premium",
+          tech: ["HTML5", "CSS3", "JavaScript", "Audio API"],
+          category: "frontend",
+          gradient: "from-orange-600 to-red-600",
+          images: ["files/kl20.png", "files/kl20-1.png", "files/kl20-2.png"],
+          liveUrl: "https://tonevan-music.example.com",
+          repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/Tonevan%20Music/222.html"
+        },
+        14: {
+          name: "NOVAELLE - Author Fashion",
+          description: "Plantilla de tienda de moda de diseñador. Galería visual premium de colecciones, presentación de créator y system de compra. Diseño editorial sofisticado con tipografía moderna, navegación intuitiva y composición visual impactante para desplegar exclusividad.",
+          role: "Frontend Developer",
+          status: "Concepto",
+          year: "2026",
+          client: "Proyecto Personal",
+          clientType: "Empresa",
+          impact: "Plataforma de moda autoralmente premium",
+          tech: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
+          category: "frontend",
+          gradient: "from-gray-800 to-black",
+          images: ["files/kl21.png", "files/kl21-1.png", "files/kl21-2.png"],
+          liveUrl: "https://novaelle-fashion.example.com",
+          repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/NOVAELLE%20-%20%D0%90%D0%B2%D1%82%D0%BE%D1%80%D1%81%D0%BA%D0%B0%D1%8F%20%D0%BE%D0%B4%D0%B5%D0%B6%D0%B4%D0%B0/23.html"
+        },
+        15: {
+          name: "Peony - Special Flower Bouquet",
+          description: "Plantilla de e-commerce para floristeria premium. Catálogo de arreglos especiales, bouquets personalizados y servicios de entrega. Sistema de compra integrado con galería de imágenes, reseñas y recomendaciones. Diseño elegante responsivo con enfoque en experiencia visual.",
+          role: "Frontend Developer",
+          status: "Concepto",
+          year: "2026",
+          client: "Proyecto Personal",
+          clientType: "Empresa",
+          impact: "Plataforma de florería profesional",
+          tech: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
+          category: "frontend",
+          gradient: "from-rose-600 to-pink-600",
+          images: ["files/kl22.png", "files/kl22-1.png", "files/kl22-2.png"],
+          liveUrl: "https://peony-flowers.example.com",
+          repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/Peony%20-%20Special%20Flower%20Bouquet/27.html"
+        }
+      };
+
+      let currentSlide = 0;
+      let selectedProjectId = null;
+
+      // Filtrado de proyectos
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      
+      function renderProjectGrid(startFromId = null) {
+        const container = document.getElementById("projectGrid");
+        container.innerHTML = "";
+        
+        let startId = startFromId ? parseInt(startFromId) + 1 : 1;
+        
+        for (let i = startId; i <= Object.keys(projectsData).length; i++) {
+          const project = projectsData[i];
+          if (!project) continue;
+          
+          const card = document.createElement("div");
+          card.className = "project-card rounded-2xl overflow-hidden relative group cursor-pointer animate-in";
+          card.setAttribute("data-category", project.category);
+          card.setAttribute("data-project-id", i);
+          card.setAttribute("tabindex", "0");
+          card.setAttribute("role", "button");
+          card.setAttribute("aria-label", `${project.name} - Proyecto ${i}`);
+          
+          const imgUrl = project.images[0] || "https://via.placeholder.com/400x300?text=" + project.name;
+          
+          card.innerHTML = `
+            <img src="${imgUrl}" alt="${project.name}" class="w-full aspect-video object-cover" loading="lazy" />
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/5 transition-colors z-10"></div>
+            <div class="absolute top-4 left-4 z-20 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold">#${String(i).padStart(2, '0')}</div>
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 z-20">
+              <h3 class="text-xl font-bold text-white mb-2">#${String(i).padStart(2, '0')}. ${project.name}</h3>
+              <button class="text-white hover:text-yellow-400 transition-colors text-sm font-bold uppercase flex items-center gap-2 view-project-btn">
+                <span data-i18n="viewProject">Ver Proyecto</span>
+                <span class="material-icons text-base">arrow_forward</span>
+              </button>
+            </div>
+          `;
+          
+          card.addEventListener("click", () => showProjectDetails(i));
+          card.addEventListener("keypress", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              showProjectDetails(i);
+            }
+          });
+          
+          container.appendChild(card);
+        }
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const filter = btn.getAttribute("data-filter");
+          closeProjectDetails();
+
+          // Actualizar botones activos
+          filterBtns.forEach(b => {
+            b.classList.remove("bg-primary", "text-white", "dark:bg-white", "dark:text-primary");
+            b.classList.add("bg-transparent", "border-2", "border-primary", "dark:border-white", "text-primary", "dark:text-white");
+          });
+          btn.classList.remove("bg-transparent", "border-2", "border-primary", "dark:border-white", "text-primary", "dark:text-white");
+          btn.classList.add("bg-primary", "text-white", "dark:bg-white", "dark:text-primary");
+
+          // Filtrar proyectos
+          const cards = document.querySelectorAll(".project-card");
+          cards.forEach(card => {
+            if (filter === "all" || card.getAttribute("data-category") === filter) {
+              card.style.display = "block";
+              setTimeout(() => card.style.opacity = "1", 10);
+            } else {
+              card.style.opacity = "0";
+              setTimeout(() => card.style.display = "none", 300);
+            }
+          });
+        });
+      });
+
+      // Mostrar detalles del proyecto
+      function showProjectDetails(projectId) {
+        selectedProjectId = projectId;
+        const project = projectsData[projectId];
+        if (!project) return;
+
+        const t = translations[currentLang] || translations.es;
+        const statusText = project.status === "En producción" ? t.production : 
+                          project.status === "MVP" ? t.mvp :
+                          project.status === "Concepto" ? t.concept : t.inProgress;
+
+        const detailsHTML = `
+          <div class="project-details w-full">
+            <div class="details-header">
+              <div>
+                <span class="text-primary dark:text-white text-sm font-bold">#${String(projectId).padStart(2, '0')}</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold">${project.name}</h2>
+              </div>
+              <button class="details-close-btn text-primary dark:text-white" onclick="closeProjectDetails()">
+                <span class="material-icons">close</span>
+              </button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <!-- Izquierda: Descripción y detalles -->
+              <div class="space-y-8">
+                <div>
+                  <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-lg mb-6">${project.description}</p>
+                </div>
+
+                <!-- Metadata Grid -->
+                <div class="grid grid-cols-2 gap-6 py-6 border-y border-gray-300 dark:border-gray-700">
+                  <div>
+                    <p class="text-xs font-bold uppercase text-gray-600 dark:text-gray-400 mb-2"><span data-i18n="role">${t.role}</span></p>
+                    <p class="font-semibold text-primary dark:text-white">${project.role}</p>
+                  </div>
+                  <div>
+                    <p class="text-xs font-bold uppercase text-gray-600 dark:text-gray-400 mb-2"><span data-i18n="status">${t.status}</span></p>
+                    <p class="font-semibold text-primary dark:text-white">${statusText}</p>
+                  </div>
+                  <div>
+                    <p class="text-xs font-bold uppercase text-gray-600 dark:text-gray-400 mb-2"><span data-i18n="year">${t.year}</span></p>
+                    <p class="font-semibold text-primary dark:text-white">${project.year}</p>
+                  </div>
+                  <div>
+                    <p class="text-xs font-bold uppercase text-gray-600 dark:text-gray-400 mb-2"><span data-i18n="client">${t.client}</span></p>
+                    <p class="font-semibold text-primary dark:text-white">${project.client}</p>
+                  </div>
+                  <div class="col-span-2">
+                    <p class="text-xs font-bold uppercase text-gray-600 dark:text-gray-400 mb-2"><span data-i18n="impact">${t.impact}</span></p>
+                    <p class="font-semibold text-primary dark:text-white">${project.impact}</p>
+                  </div>
+                </div>
+
+                <!-- Tecnologías -->
+                <div>
+                  <p class="text-xs font-bold uppercase text-gray-600 dark:text-gray-400 mb-3"><span data-i18n="tech">${t.tech}</span></p>
+                  <div class="flex flex-wrap gap-2">
+                    ${project.tech.map(tech => `<span class="text-xs bg-primary/10 dark:bg-white/10 text-primary dark:text-white px-3 py-1 rounded-full">${tech}</span>`).join("")}
+                  </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-wrap gap-4 pt-4">
+                  <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-primary text-white dark:bg-white dark:text-primary rounded-full font-bold uppercase text-sm hover:opacity-80 transition-opacity flex items-center gap-2">
+                    <span class="material-icons text-base">language</span>
+                    <span data-i18n="liveDemo">${t.liveDemo}</span>
+                  </a>
+                  <a href="${project.repoUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 border-2 border-primary dark:border-white text-primary dark:text-white rounded-full font-bold uppercase text-sm hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-primary transition-colors flex items-center gap-2">
+                    <span class="material-icons text-base">code</span>
+                    <span data-i18n="repository">${t.repository}</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Derecha: Slider de imágenes/Video -->
+              <div class="image-slider w-full aspect-video lg:aspect-square">
+                <div class="slider-container" style="transform: translateX(0%);">
+                  ${project.video ? 
+                    `<video src="${project.video}" class="slider-slide w-full h-full object-cover" controls controlsList="nodownload" preload="metadata"></video>` 
+                    : ''
+                  }
+                  ${project.images.filter(img => img).map(img => 
+                    `<img src="${img}" alt="${project.name}" class="slider-slide w-full h-full object-cover" loading="lazy" />`
+                  ).join("")}
+                </div>
+
+                <!-- Botones de navegación -->
+                ${((project.video ? 1 : 0) + project.images.filter(img => img).length) > 1 ? `
+                <button class="slider-nav prev" onclick="prevSlide()">❮</button>
+                <button class="slider-nav next" onclick="nextSlide()">❯</button>
+                ` : ''}
+
+                <!-- Indicadores -->
+                <div class="slider-indicators">
+                  ${(project.video ? ['video'] : []).concat(project.images.filter(img => img)).map((_, idx) => 
+                    `<button class="slider-indicator ${idx === currentSlide ? 'active' : ''}" onclick="goToSlide(${idx})"></button>`
+                  ).join("")}
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+
+        document.getElementById("detailsContainer").innerHTML = detailsHTML;
+        currentSlide = 0;
+        
+        // Renderizar proyectos siguientes (grid lineal)
+        renderProjectGrid(projectId);
+        
+        // Scroll a los detalles
+        setTimeout(() => {
+          document.getElementById("detailsContainer").scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+
+      function closeProjectDetails() {
+        document.getElementById("detailsContainer").innerHTML = "";
+        selectedProjectId = null;
+        currentSlide = 0;
+        renderProjectGrid();
+      }
+
+      function prevSlide() {
+        const project = projectsData[selectedProjectId];
+        if (project) {
+          const totalSlides = (project.video ? 1 : 0) + project.images.filter(img => img).length;
+          currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+          updateSlider();
+        }
+      }
+
+      function nextSlide() {
+        const project = projectsData[selectedProjectId];
+        if (project) {
+          const totalSlides = (project.video ? 1 : 0) + project.images.filter(img => img).length;
+          currentSlide = (currentSlide + 1) % totalSlides;
+          updateSlider();
+        }
+      }
+
+      function goToSlide(idx) {
+        currentSlide = idx;
+        updateSlider();
+      }
+
+      function updateSlider() {
+        const slider = document.querySelector(".slider-container");
+        if (slider) {
+          slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+        
+        const indicators = document.querySelectorAll(".slider-indicator");
+        indicators.forEach((ind, idx) => {
+          if (idx === currentSlide) {
+            ind.classList.add("active");
+          } else {
+            ind.classList.remove("active");
+          }
+        });
+      }
+
+      // Inicialización
+      document.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(window.location.search);
+        const projectId = params.get('proyecto');
+        
+        if (projectId && projectsData[projectId]) {
+          showProjectDetails(parseInt(projectId));
+        } else {
+          renderProjectGrid();
+        }
+      });
+
+      // Event listeners para botones "Ver Caso"
+      document.addEventListener("click", (e) => {
+        if (e.target.closest(".view-project-btn")) {
+          const card = e.target.closest(".project-card");
+          if (card) {
+            const projectId = card.getAttribute("data-project-id");
+            showProjectDetails(projectId);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

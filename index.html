@@ -1,0 +1,1060 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title id="page-title">Robert - Desarrollador Full Stack</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1A1A1A", // Dark charcoal for primary text/elements
+              "background-light": "#E8E8E3", // Beige/Light Gray from image
+              "background-dark": "#121212", // Dark mode background
+              "surface-light": "#E8E8E3",
+              "surface-dark": "#1E1E1E",
+              "text-light": "#1A1A1A",
+              "text-dark": "#E8E8E3",
+              "accent-gray": "#7A7A7A",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              serif: ["DM Serif Display", "serif"],
+              display: ["Playfair Display", "serif"],
+            },
+            borderRadius: {
+              DEFAULT: "4px",
+              pill: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 4px;
+      }
+      .serif-italic {
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+      }
+    </style>
+    <script>
+      // Translations
+      const translations = {
+        es: {
+          title: "Robert - Desarrollador Full Stack",
+          name: "Robert",
+          menu: "Menú",
+          galleryBtn: "Galería de proyectos",
+          themeBtn: "Tema",
+          hello: "Hola, soy Robert,",
+          role: "Desarrollador Full Stack",
+          description: "Transformando ideas en soluciones de software escalables — desarrollo full stack que captiva, compromete y entrega resultados.",
+          contactBtn: "Contactame",
+          yearsExp: "Años de Experiencia",
+          projectsDelivered: "Proyectos creados",
+          clientSatisfaction: "Satisfacción de clientes / mentores",
+          clientsWorldwide: "Equipos / proyectos colaborativos",
+          frontend: "Desarrollo Frontend",
+          frontendDesc: "Interfaces responsivas y modernas con React, Vue y Angular.",
+          backend: "Desarrollo Backend",
+          backendDesc: "APIs escalables y robustas con Node.js, Python y Java.",
+          database: "Diseño de Bases de Datos",
+          databaseDesc: "Arquitectura de datos eficiente con SQL y NoSQL.",
+          devops: "DevOps y Deployment",
+          devopsDesc: "CI/CD, Docker, Kubernetes y deployment en la nube.",
+          trustedBy: "Tecnologías Que Domino",
+          about: "Construyendo Soluciones",
+          aboutTitle: "Escalables e Innovadoras",
+          aboutDesc: "Hola, soy Robert, un desarrollador full stack apasionado por crear soluciones digitales de impacto.",
+          aboutContent1: "Con experiencia en tecnologías modernas y un profundo conocimiento de la arquitectura de software, diseño sistemas que no solo funcionan bien sino que escalan.",
+          aboutContent2: "Ya sea construyendo desde cero o refactorizando aplicaciones existentes, combino estrategia, código limpio y mejores prácticas para llevar ideas al siguiente nivel.",
+          portfolio: "Proyectos",
+          portfolioDesc: "Explora mis recientes creaciones de desarrollo full stack y descubre cómo podemos transformar tu visión en realidad.",
+          viewGallery: "Ver Galería Completa",
+          viewProject: "Ver Proyecto",
+          footerText: "© 2024 Robert. Todos los derechos reservados."
+        },
+        en: {
+          title: "Robert - Full Stack Developer",
+          name: "Robert",
+          menu: "Menu",
+          galleryBtn: "Project Gallery",
+          themeBtn: "Theme",
+          hello: "Hey, I'm Robert,",
+          role: "Full Stack Developer",
+          description: "Transforming ideas into scalable software solutions — full stack development that captivates, engages, and delivers results.",
+          contactBtn: "Contact Me",
+          yearsExp: "Years of Experience",
+          projectsDelivered: "Projects Delivered",
+          clientSatisfaction: "Client Satisfaction",
+          clientsWorldwide: "Clients Worldwide",
+          frontend: "Frontend Development",
+          frontendDesc: "Responsive and modern interfaces with React, Vue and Angular.",
+          backend: "Backend Development",
+          backendDesc: "Scalable and robust APIs with Node.js, Python and Java.",
+          database: "Database Design",
+          databaseDesc: "Efficient data architecture with SQL and NoSQL.",
+          devops: "DevOps and Deployment",
+          devopsDesc: "CI/CD, Docker, Kubernetes and cloud deployment.",
+          trustedBy: "Technologies I Master",
+          about: "Building Scalable",
+          aboutTitle: "and Innovative Solutions",
+          aboutDesc: "Hey, I'm Robert, a full stack developer passionate about creating impactful digital solutions.",
+          aboutContent1: "With experience in modern technologies and a deep understanding of software architecture, I design systems that not only work well but scale.",
+          aboutContent2: "Whether building from scratch or refactoring existing applications, I combine strategy, clean code and best practices to take ideas to the next level.",
+          portfolio: "Portfolio",
+          portfolioDesc: "Explore my recent full stack development creations and discover how we can transform your vision into reality.",
+          viewGallery: "View Complete Gallery",
+          viewProject: "View Project",
+          footerText: "© 2024 Robert. All rights reserved."
+        },
+        pt: {
+          title: "Robert - Desenvolvedor Full Stack",
+          name: "Robert",
+          menu: "Menu",
+          galleryBtn: "Galeria de Projetos",
+          themeBtn: "Tema",
+          hello: "Oi, sou Robert,",
+          role: "Desenvolvedor Full Stack",
+          description: "Transformando ideias em soluções de software escaláveis — desenvolvimento full stack que cativa, envolve e entrega resultados.",
+          contactBtn: "Entre em Contato",
+          yearsExp: "Anos de Experiência",
+          projectsDelivered: "Projetos Entregues",
+          clientSatisfaction: "Satisfação do Cliente",
+          clientsWorldwide: "Clientes em Todo Mundo",
+          frontend: "Desenvolvimento Frontend",
+          frontendDesc: "Interfaces responsivas e modernas com React, Vue e Angular.",
+          backend: "Desenvolvimento Backend",
+          backendDesc: "APIs escaláveis e robustas com Node.js, Python e Java.",
+          database: "Design de Banco de Dados",
+          databaseDesc: "Arquitetura de dados eficiente com SQL e NoSQL.",
+          devops: "DevOps e Deployment",
+          devopsDesc: "CI/CD, Docker, Kubernetes e deployment em nuvem.",
+          trustedBy: "Tecnologias que Domino",
+          about: "Construindo Soluções",
+          aboutTitle: "Escaláveis e Inovadoras",
+          aboutDesc: "Oi, sou Robert, um desenvolvedor full stack apaixonado por criar soluções digitais impactantes.",
+          aboutContent1: "Com experiência em tecnologias modernas e profundo conhecimento de arquitetura de software, projeto sistemas que não apenas funcionam bem, mas escalam.",
+          aboutContent2: "Seja construindo do zero ou refatorando aplicações existentes, combino estratégia, código limpo e melhores práticas para levar ideias ao próximo nível.",
+          portfolio: "Portfólio",
+          portfolioDesc: "Explore minhas recentes criações de desenvolvimento full stack e descubra como podemos transformar sua visão em realidade.",
+          viewGallery: "Ver Galeria Completa",
+          viewProject: "Ver Projeto",
+          footerText: "© 2024 Robert. Todos os direitos reservados."
+        },
+        fr: {
+          title: "Robert - Développeur Full Stack",
+          name: "Robert",
+          menu: "Menu",
+          galleryBtn: "Galerie de Projets",
+          themeBtn: "Thème",
+          hello: "Salut, je suis Robert,",
+          role: "Développeur Full Stack",
+          description: "Transformer des idées en solutions logicielles évolutives — développement full stack qui captive, engage et livre des résultats.",
+          contactBtn: "Me Contacter",
+          yearsExp: "Années d'Expérience",
+          projectsDelivered: "Projets Livrés",
+          clientSatisfaction: "Satisfaction Client",
+          clientsWorldwide: "Clients dans le Monde",
+          frontend: "Développement Frontend",
+          frontendDesc: "Interfaces réactives et modernes avec React, Vue et Angular.",
+          backend: "Développement Backend",
+          backendDesc: "APIs évolutives et robustes avec Node.js, Python et Java.",
+          database: "Conception de Base de Données",
+          databaseDesc: "Architecture de données efficace avec SQL et NoSQL.",
+          devops: "DevOps et Déploiement",
+          devopsDesc: "CI/CD, Docker, Kubernetes et déploiement cloud.",
+          trustedBy: "Technologies que je Maîtrise",
+          about: "Construire des Solutions",
+          aboutTitle: "Évolutives et Innovantes",
+          aboutDesc: "Salut, je suis Robert, un développeur full stack passionné par la création de solutions numériques impactantes.",
+          aboutContent1: "Avec une expérience des technologies modernes et une profonde compréhension de l'architecture logicielle, je conçois des systèmes qui non seulement fonctionnent bien mais évoluent.",
+          aboutContent2: "Qu'il s'agisse de construire à partir de zéro ou de refactoriser des applications existantes, je combine la stratégie, le code propre et les meilleures pratiques pour porter les idées au niveau supérieur.",
+          portfolio: "Portfolio",
+          portfolioDesc: "Explorez mes récentes créations de développement full stack et découvrez comment nous pouvons transformer votre vision en réalité.",
+          viewGallery: "Voir la Galerie Complète",
+          viewProject: "Voir le Projet",
+          footerText: "© 2024 Robert. Tous droits réservés."
+        },
+        de: {
+          title: "Robert - Full-Stack-Entwickler",
+          name: "Robert",
+          menu: "Menü",
+          galleryBtn: "Projektgalerie",
+          themeBtn: "Thema",
+          hello: "Hallo, ich bin Robert,",
+          role: "Full-Stack-Entwickler",
+          description: "Ideen in skalierbare Softwarelösungen umwandeln — Full-Stack-Entwicklung, die fasziniert, bindet und Ergebnisse liefert.",
+          contactBtn: "Kontaktiere mich",
+          yearsExp: "Jahre Erfahrung",
+          projectsDelivered: "Projekte Abgeliefert",
+          clientSatisfaction: "Kundenzufriedenheit",
+          clientsWorldwide: "Kunden weltweit",
+          frontend: "Frontend-Entwicklung",
+          frontendDesc: "Responsive und moderne Benutzeroberflächen mit React, Vue und Angular.",
+          backend: "Backend-Entwicklung",
+          backendDesc: "Skalierbare und robuste APIs mit Node.js, Python und Java.",
+          database: "Datenbankdesign",
+          databaseDesc: "Effiziente Datenbankarchitektur mit SQL und NoSQL.",
+          devops: "DevOps und Bereitstellung",
+          devopsDesc: "CI/CD, Docker, Kubernetes und Cloud-Bereitstellung.",
+          trustedBy: "Technologien, die ich Beherrsche",
+          about: "Skalierbare Lösungen",
+          aboutTitle: "und innovative Lösungen",
+          aboutDesc: "Hallo, ich bin Robert, ein Full-Stack-Entwickler, der leidenschaftlich daran arbeitet, wirkungsvolle digitale Lösungen zu schaffen.",
+          aboutContent1: "Mit Erfahrung in modernen Technologien und tiefem Verständnis der Softwarearchitektur entwerfe ich Systeme, die nicht nur gut funktionieren, sondern skalieren.",
+          aboutContent2: "Ob von Grund auf neu bauen oder vorhandene Anwendungen umgestalten, ich kombiniere Strategie, sauberen Code und Best Practices, um Ideen auf die nächste Stufe zu bringen.",
+          portfolio: "Portfolio",
+          portfolioDesc: "Erkunden Sie meine neuesten Full-Stack-Entwicklungsprojekte und entdecken Sie, wie wir Ihre Vision in die Realität umsetzen können.",
+          viewGallery: "Vollständige Galerie Anzeigen",
+          viewProject: "Projekt Anzeigen",
+          footerText: "© 2024 Robert. Alle Rechte vorbehalten."
+        },
+        ja: {
+          title: "Robert - フルスタック開発者",
+          name: "Robert",
+          menu: "メニュー",
+          galleryBtn: "プロジェクトギャラリー",
+          themeBtn: "テーマ",
+          hello: "こんにちは、私はロバートです",
+          role: "フルスタック開発者",
+          description: "アイデアをスケーラブルなソフトウェアソリューションに変える — エンゲージし、結果を提供するフルスタック開発。",
+          contactBtn: "お問い合わせ",
+          yearsExp: "年の経験",
+          projectsDelivered: "プロジェクト完了",
+          clientSatisfaction: "顧客満足度",
+          clientsWorldwide: "世界中のクライアント",
+          frontend: "フロントエンド開発",
+          frontendDesc: "React、Vue、Angularを使用した反応性の高い最新のインターフェイス。",
+          backend: "バックエンド開発",
+          backendDesc: "Node.js、Python、Javaを使用したスケーラブルで堅牢なAPI。",
+          database: "データベース設計",
+          databaseDesc: "SQLおよびNoSQLを使用した効率的なデータアーキテクチャ。",
+          devops: "DevOpsとデプロイメント",
+          devopsDesc: "CI/CD、Docker、Kubernetes、クラウドデプロイメント。",
+          trustedBy: "精通している技術",
+          about: "スケーラブルなソリューション",
+          aboutTitle: "と革新的なソリューション",
+          aboutDesc: "こんにちは、私はロバートです。影響力のあるデジタルソリューションの作成に情熱を持つフルスタック開発者です。",
+          aboutContent1: "最新の技術の経験とソフトウェアアーキテクチャの深い理解を備えた、よく機能し、スケールするシステムを設計します。",
+          aboutContent2: "最初から構築する場合でも、既存のアプリケーションをリファクタリングする場合でも、戦略、クリーンコード、ベストプラクティスを組み合わせて、アイデアを次のレベルに引き上げます。",
+          portfolio: "ポートフォリオ",
+          portfolioDesc: "最近のフルスタック開発作品を探索して、あなたのビジョンを現実にどのように変えることができるかを発見してください。",
+          viewGallery: "完全なギャラリーを表示",
+          viewProject: "プロジェクトを表示",
+          footerText: "© 2024 Robert. すべての権利が予約されています。"
+        }
+      };
+
+      // Current Language
+      let currentLang = localStorage.getItem("site_language_v1") || "es";
+
+      // Update text content based on language
+      function updateLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem("site_language_v1", lang);
+        
+        const t = translations[lang];
+        document.documentElement.lang = lang;
+        document.getElementById("page-title").textContent = t.title;
+        document.getElementById("langDisplay").textContent = lang.toUpperCase();
+        
+        // Update all elements with data-i18n attribute
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+          const key = el.getAttribute("data-i18n");
+          if (t[key]) {
+            el.textContent = t[key];
+          }
+        });
+      }
+
+      // Initialize language on DOM ready
+      function initLanguageSelector() {
+        const LANG_BTN = document.getElementById("langBtn");
+        const LANG_MENU = document.getElementById("langMenu");
+        const LANG_OPTIONS = document.querySelectorAll(".lang-option");
+
+        if (!LANG_BTN) return;
+
+        function showLangMenu() {
+          LANG_MENU.classList.remove("hidden");
+          LANG_MENU.classList.add("block");
+          LANG_BTN.setAttribute("aria-expanded", "true");
+          document.addEventListener("click", onDocClickLang);
+        }
+
+        function hideLangMenu() {
+          LANG_MENU.classList.add("hidden");
+          LANG_MENU.classList.remove("block");
+          LANG_BTN.setAttribute("aria-expanded", "false");
+          LANG_BTN.focus();
+          document.removeEventListener("click", onDocClickLang);
+        }
+
+        function onDocClickLang(e) {
+          if (!LANG_MENU.contains(e.target) && !LANG_BTN.contains(e.target))
+            hideLangMenu();
+        }
+
+        LANG_BTN.addEventListener("click", function (e) {
+          e.stopPropagation();
+          if (LANG_MENU.classList.contains("hidden")) showLangMenu();
+          else hideLangMenu();
+        });
+
+        LANG_OPTIONS.forEach(option => {
+          option.addEventListener("click", function () {
+            const lang = this.getAttribute("data-lang");
+            updateLanguage(lang);
+            hideLangMenu();
+          });
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && !LANG_MENU.classList.contains("hidden")) {
+            hideLangMenu();
+          }
+        });
+      }
+    </script>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-sans transition-colors duration-300 antialiased"
+  >
+    <header
+      class="w-full px-6 py-6 md:px-12 flex justify-between items-center fixed top-0 left-0 z-50 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-sm"
+    >
+      <div class="flex items-center gap-2 min-w-0">
+  <div class="w-2.5 h-2.5 bg-primary dark:bg-white rounded-full"></div>
+  <span class="font-bold tracking-widest text-sm uppercase whitespace-nowrap">
+    Robert A.C.
+  </span>
+</div>
+
+
+      <!-- Language Selector -->
+      <div class="relative">
+        <button
+          id="langBtn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="langMenu"
+          class="bg-primary text-white dark:bg-white dark:text-primary px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase flex items-center gap-2 hover:opacity-90 transition-opacity focus:outline-none focus:ring-4 focus:ring-accent-gray/20"
+        >
+          <span id="langDisplay">ES</span>
+          <span class="material-icons text-base" aria-hidden="true">language</span>
+        </button>
+
+        <!-- Language Dropdown -->
+        <div
+          id="langMenu"
+          class="hidden absolute right-20 mt-3 w-40 rounded-xl shadow-lg ring-1 ring-black/5 bg-surface-light dark:bg-surface-dark border border-[rgba(0,0,0,0.04)] dark:border-[rgba(255,255,255,0.03)] p-3"
+          role="menu"
+          aria-label="Selector de idioma"
+        >
+          <div class="flex flex-col gap-2">
+            <button
+              type="button"
+              class="lang-option w-full text-left px-3 py-2 rounded-md text-sm font-medium bg-transparent hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)] transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gray/20"
+              data-lang="es"
+              role="menuitem"
+            >
+              🇪🇸 Español
+            </button>
+            <button
+              type="button"
+              class="lang-option w-full text-left px-3 py-2 rounded-md text-sm font-medium bg-transparent hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)] transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gray/20"
+              data-lang="en"
+              role="menuitem"
+            >
+              🇺🇸 English
+            </button>
+            <button
+              type="button"
+              class="lang-option w-full text-left px-3 py-2 rounded-md text-sm font-medium bg-transparent hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)] transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gray/20"
+              data-lang="pt"
+              role="menuitem"
+            >
+              🇵🇹 Português
+            </button>
+            <button
+              type="button"
+              class="lang-option w-full text-left px-3 py-2 rounded-md text-sm font-medium bg-transparent hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)] transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gray/20"
+              data-lang="fr"
+              role="menuitem"
+            >
+              🇫🇷 Français
+            </button>
+            <button
+              type="button"
+              class="lang-option w-full text-left px-3 py-2 rounded-md text-sm font-medium bg-transparent hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)] transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gray/20"
+              data-lang="de"
+              role="menuitem"
+            >
+              🇩🇪 Deutsch
+            </button>
+            <button
+              type="button"
+              class="lang-option w-full text-left px-3 py-2 rounded-md text-sm font-medium bg-transparent hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)] transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gray/20"
+              data-lang="ja"
+              role="menuitem"
+            >
+              🇯🇵 日本語
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu button -->
+      <div class="relative">
+        <button
+          id="menuBtn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mainMenu"
+          class="bg-primary text-white dark:bg-white dark:text-primary px-5 py-2 rounded-full text-xs font-bold tracking-widest uppercase flex items-center gap-2 hover:opacity-90 transition-opacity focus:outline-none focus:ring-4 focus:ring-accent-gray/20"
+        >
+          <span data-i18n="menu">Menú</span>
+          <span class="material-icons text-base" aria-hidden="true">menu</span>
+        </button>
+
+        <!-- Dropdown panel -->
+        <div
+          id="mainMenu"
+          class="hidden absolute right-0 mt-3 w-56 rounded-xl shadow-lg ring-1 ring-black/5 bg-surface-light dark:bg-surface-dark border border-[rgba(0,0,0,0.04)] dark:border-[rgba(255,255,255,0.03)] p-3"
+          role="menu"
+          aria-label="Menu principal"
+        >
+          <div class="flex flex-col gap-2">
+            <a
+              href="galeria.html"
+              id="galleryBtn"
+              class="w-full text-left px-3 py-2 rounded-md text-sm font-medium bg-transparent hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)] transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gray/20"
+              role="menuitem" data-i18n="galleryBtn"
+            >
+              Galería de proyectos
+            </a>
+
+            <button
+              type="button"
+              id="themeToggleBtn"
+              class="w-full flex items-center justify-between gap-3 px-3 py-2 rounded-md text-sm font-medium bg-transparent hover:bg-[rgba(0,0,0,0.03)] dark:hover:bg-[rgba(255,255,255,0.03)] transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gray/20"
+              role="menuitem"
+              aria-pressed="false"
+            >
+              <span data-i18n="themeBtn">Tema</span>
+              <span
+                id="themeIcon"
+                class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white text-primary dark:bg-transparent dark:text-text-dark"
+                aria-hidden="true"
+              >
+                <span class="material-icons text-base">dark_mode</span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const MENU_BTN = document.getElementById("menuBtn");
+        const MAIN_MENU = document.getElementById("mainMenu");
+        const GALLERY_BTN = document.getElementById("galleryBtn");
+        const THEME_BTN = document.getElementById("themeToggleBtn");
+        const THEME_ICON = document.getElementById("themeIcon");
+        const THEME_KEY = "site_theme_v1";
+        const docEl = document.documentElement;
+
+        function showMenu() {
+          MAIN_MENU.classList.remove("hidden");
+          MAIN_MENU.classList.add("block");
+          MENU_BTN.setAttribute("aria-expanded", "true");
+          // focus first menu item
+          setTimeout(() => GALLERY_BTN.focus(), 10);
+          document.addEventListener("click", onDocClick);
+        }
+
+        function hideMenu() {
+          MAIN_MENU.classList.add("hidden");
+          MAIN_MENU.classList.remove("block");
+          MENU_BTN.setAttribute("aria-expanded", "false");
+          MENU_BTN.focus();
+          document.removeEventListener("click", onDocClick);
+        }
+
+        function toggleMenu() {
+          if (MAIN_MENU.classList.contains("hidden")) showMenu();
+          else hideMenu();
+        }
+
+        function onDocClick(e) {
+          if (!MAIN_MENU.contains(e.target) && !MENU_BTN.contains(e.target))
+            hideMenu();
+        }
+
+        // Toggle on button click
+        MENU_BTN.addEventListener("click", function (e) {
+          e.stopPropagation(); // prevent immediate document click
+          toggleMenu();
+        });
+
+        // Close on Escape
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && !MAIN_MENU.classList.contains("hidden")) {
+            hideMenu();
+          }
+        });
+
+        // Close when resizing to large screens (optional)
+        window.addEventListener("resize", function () {
+          if (
+            window.innerWidth >= 1024 &&
+            !MAIN_MENU.classList.contains("hidden")
+          ) {
+            hideMenu();
+          }
+        });
+
+        // Gallery: smooth scroll and close
+        GALLERY_BTN.addEventListener("click", function () {
+          const target = document.getElementById("proyectos");
+          if (target)
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          hideMenu();
+        });
+
+        // Theme handling
+        function applyTheme(theme) {
+          if (theme === "dark") {
+            docEl.classList.add("dark");
+            THEME_BTN.setAttribute("aria-pressed", "true");
+            THEME_ICON.innerHTML =
+              '<span class="material-icons text-base">light_mode</span>';
+          } else {
+            docEl.classList.remove("dark");
+            THEME_BTN.setAttribute("aria-pressed", "false");
+            THEME_ICON.innerHTML =
+              '<span class="material-icons text-base">dark_mode</span>';
+          }
+          localStorage.setItem(THEME_KEY, theme);
+        }
+
+        (function initTheme() {
+          const saved = localStorage.getItem(THEME_KEY);
+          if (saved === "dark" || saved === "light") applyTheme(saved);
+          else {
+            const prefersDark =
+              window.matchMedia &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches;
+            applyTheme(prefersDark ? "dark" : "light");
+          }
+        })();
+
+        THEME_BTN.addEventListener("click", function () {
+          const isDark = docEl.classList.contains("dark");
+          applyTheme(isDark ? "light" : "dark");
+          // keep menu open for clarity — or hideMenu() to auto-close
+        });
+
+        // Initialize language selector
+        updateLanguage(currentLang);
+        initLanguageSelector();
+      });
+    </script>
+    <main
+      class="w-full pt-24 px-6 md:px-12 max-w-7xl mx-auto space-y-24 md:space-y-32"
+    >
+      <section
+        class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[85vh]"
+      >
+        <div
+          class="lg:col-span-4 order-2 lg:order-1 flex flex-col justify-center z-10"
+        >
+          <p class="text-accent-gray dark:text-gray-400 mb-2 text-lg" data-i18n="hello">
+            Hola, soy Robert,
+          </p>
+          <h1
+            class="text-5xl md:text-7xl font-serif text-primary dark:text-white leading-[0.9] mb-6"
+          >
+            <span data-i18n="role">Desarrollador Full Stack</span>
+          </h1>
+          <p
+            class="text-accent-gray dark:text-gray-400 max-w-sm mb-8 text-sm leading-relaxed" data-i18n="description"
+          >
+            Transformando ideas en soluciones de software escalables — desarrollo full stack que captiva, compromete y entrega resultados.
+          </p>
+          <div>
+            <button
+              class="bg-primary text-white dark:bg-white dark:text-primary pl-6 pr-2 py-2 rounded-full text-xs font-bold tracking-widest uppercase flex items-center gap-3 hover:scale-105 transition-transform"
+            >
+              <span data-i18n="contactBtn">Contactame</span>
+              <div
+                class="w-8 h-8 bg-white dark:bg-primary rounded-full flex items-center justify-center"
+              >
+                <span
+                  class="material-icons text-primary dark:text-white text-sm rotate-0"
+                  >arrow_forward</span
+                >
+              </div>
+            </button>
+          </div>
+        </div>
+        <div
+          class="lg:col-span-4 order-1 lg:order-2 flex justify-center items-center relative"
+        >
+          <div
+            class="w-64 h-64 md:w-80 md:h-80 lg:w-[450px] lg:h-[450px] rounded-full overflow-hidden border-4 border-transparent shadow-2xl relative z-0"
+          >
+            <img
+              alt="Portrait of Solt"
+              class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY123Vu4mIB4GY-iN0RKFDew_db3yPjv3LrUJDsczXaNYEvDz4Ra56tAPBh9eCH-lxSCVTDkQlN96EsvQDj7jvp6YoRK03aO_hYV2wgKvDZahnd_ZynEr7rZ9Y4vEQeHbiKwAlrO1FVSs-ng_6HM29ll0oPxVcCVcWdD3hCa3L8Ct2eB5NEdDk02ePs0ozqII8t9-1UGFTZLsceM5KIFq2RFWSZAA7ww7j4gUM57wzjQFWdgJBzl45LzuH2q8ML0Clccm1q3nnzzg"
+            />
+          </div>
+        </div>
+        <div class="lg:col-span-4 order-3 flex flex-col justify-center items-end text-right space-y-8 z-10">
+  <div class="group">
+    <h3 class="text-3xl font-bold text-primary dark:text-white group-hover:text-accent-gray transition-colors">
+      0+
+    </h3>
+    <p class="text-xs text-accent-gray uppercase tracking-wide" data-i18n="yearsExp">
+      Años de experiencia
+    </p>
+  </div>
+
+  <div class="group">
+    <h3 class="text-3xl font-bold text-primary dark:text-white group-hover:text-accent-gray transition-colors">
+      290+
+    </h3>
+    <p class="text-xs text-accent-gray uppercase tracking-wide" data-i18n="projectsDelivered">
+      Proyectos (académicos y freelance)
+    </p>
+  </div>
+
+  <div class="group">
+    <h3 class="text-3xl font-bold text-primary dark:text-white group-hover:text-accent-gray transition-colors">
+      95%
+    </h3>
+    <p class="text-xs text-accent-gray uppercase tracking-wide" data-i18n="clientSatisfaction">
+      Satisfacción de clientes / mentores
+    </p>
+  </div>
+
+  <div class="group">
+    <h3 class="text-3xl font-bold text-primary dark:text-white group-hover:text-accent-gray transition-colors">
+      3
+    </h3>
+    <p class="text-xs text-accent-gray uppercase tracking-wide" data-i18n="clientsWorldwide">
+  Equipos / proyectos colaborativos
+</p>
+
+  </div>
+</div>
+
+      </section>
+      <section
+        class="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 border-t border-gray-300 dark:border-gray-800"
+      >
+        <div class="space-y-2">
+          <h4
+            class="font-bold uppercase text-xs tracking-wider text-primary dark:text-white" data-i18n="frontend"
+          >
+            Desarrollo Frontend
+          </h4>
+          <p class="text-[10px] text-accent-gray leading-tight" data-i18n="frontendDesc">
+            Interfaces responsivas y modernas con React, Vue y Angular.
+          </p>
+        </div>
+        <div class="space-y-2">
+          <h4
+            class="font-bold uppercase text-xs tracking-wider text-primary dark:text-white" data-i18n="backend"
+          >
+            Desarrollo Backend
+          </h4>
+          <p class="text-[10px] text-accent-gray leading-tight" data-i18n="backendDesc">
+            APIs escalables y robustas con Node.js, Python y Java.
+          </p>
+        </div>
+        <div class="space-y-2">
+          <h4
+            class="font-bold uppercase text-xs tracking-wider text-primary dark:text-white" data-i18n="database"
+          >
+            Diseño de Bases de Datos
+          </h4>
+          <p class="text-[10px] text-accent-gray leading-tight" data-i18n="databaseDesc">
+            Arquitectura de datos eficiente con SQL y NoSQL.
+          </p>
+        </div>
+        <div class="space-y-2">
+          <h4
+            class="font-bold uppercase text-xs tracking-wider text-primary dark:text-white" data-i18n="devops"
+          >
+            DevOps y Deployment
+          </h4>
+          <p class="text-[10px] text-accent-gray leading-tight" data-i18n="devopsDesc">
+            CI/CD, Docker, Kubernetes y deployment en la nube.
+          </p>
+        </div>
+      </section>
+      <section class="space-y-8">
+        <div
+          class="flex justify-between items-end border-b border-gray-300 dark:border-gray-800 pb-4"
+        >
+          <h2
+            class="text-2xl font-serif font-bold text-primary dark:text-white uppercase tracking-tighter" data-i18n="trustedBy"
+          >
+            Tecnologías Que Domino
+          </h2>
+          <p class="text-xs text-accent-gray hidden md:block">
+            Experimenta en más de 15 tecnologías y lenguajes de programación.
+          </p>
+        </div>
+        <div
+  class="grid grid-cols-2 md:grid-cols-4 border border-gray-300 dark:border-gray-800 divide-x divide-y divide-gray-300 dark:divide-gray-800"
+>
+  <!-- HTML5 -->
+  <div class="h-24 flex flex-col items-center justify-center p-4 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
+    <span class="font-semibold text-sm">HTML5</span>
+    <span class="text-xs opacity-70">88%</span>
+  </div>
+
+  <!-- CSS3 -->
+  <div class="h-24 flex flex-col items-center justify-center p-4 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
+    <span class="font-semibold text-sm">CSS3</span>
+    <span class="text-xs opacity-70">84%</span>
+  </div>
+
+  <!-- JavaScript -->
+  <div class="h-24 flex flex-col items-center justify-center p-4 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
+    <span class="font-semibold text-sm">JavaScript</span>
+    <span class="text-xs opacity-70">86%</span>
+  </div>
+
+  <!-- PHP -->
+  <div class="h-24 flex flex-col items-center justify-center p-4 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
+    <span class="font-semibold text-sm">PHP</span>
+    <span class="text-xs opacity-70">68%</span>
+  </div>
+
+  <!-- Go -->
+  <div class="h-24 flex flex-col items-center justify-center p-4 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
+    <span class="font-semibold text-sm">Go</span>
+    <span class="text-xs opacity-70">64%</span>
+  </div>
+
+  <!-- TypeScript -->
+  <div class="h-24 flex flex-col items-center justify-center p-4 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
+    <span class="font-semibold text-sm">TypeScript</span>
+    <span class="text-xs opacity-70">80%</span>
+  </div>
+
+  <!-- C# -->
+  <div class="h-24 flex flex-col items-center justify-center p-4 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
+    <span class="font-semibold text-sm">C#</span>
+    <span class="text-xs opacity-70">70%</span>
+  </div>
+
+  <!-- Angular -->
+  <div class="h-24 flex flex-col items-center justify-center p-4 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
+    <span class="font-semibold text-sm">Angular</span>
+    <span class="text-xs opacity-70">72%</span>
+  </div>
+
+  <!-- NodeJS -->
+  <div class="h-24 flex flex-col items-center justify-center p-4 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
+    <span class="font-semibold text-sm">NodeJS</span>
+    <span class="text-xs opacity-70">82%</span>
+  </div>
+
+  <!-- MySQL -->
+  <div class="h-24 flex flex-col items-center justify-center p-4 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
+    <span class="font-semibold text-sm">MySQL</span>
+    <span class="text-xs opacity-70">74%</span>
+  </div>
+
+  <!-- PostgreSQL -->
+  <div class="h-24 flex flex-col items-center justify-center p-4 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
+    <span class="font-semibold text-sm">PostgreSQL</span>
+    <span class="text-xs opacity-70">76%</span>
+  </div>
+
+  <!-- Git -->
+  <div class="h-24 flex flex-col items-center justify-center p-4 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
+    <span class="font-semibold text-sm">Git</span>
+    <span class="text-xs opacity-70">90%</span>
+  </div>
+
+  <!-- Figma -->
+  <div class="h-24 flex flex-col items-center justify-center p-4 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
+    <span class="font-semibold text-sm">Figma</span>
+    <span class="text-xs opacity-70">80%</span>
+  </div>
+
+  <!-- VS Code -->
+  <div class="h-24 flex flex-col items-center justify-center p-4 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
+    <span class="font-semibold text-sm">VS Code</span>
+    <span class="text-xs opacity-70">92%</span>
+  </div>
+
+  <!-- Sublime Text -->
+  <div class="h-24 flex flex-col items-center justify-center p-4 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
+    <span class="font-semibold text-sm">Sublime Text</span>
+    <span class="text-xs opacity-70">70%</span>
+  </div>
+
+  <!-- GitHub -->
+  <div class="h-24 flex flex-col items-center justify-center p-4 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
+    <span class="font-semibold text-sm">GitHub</span>
+    <span class="text-xs opacity-70">88%</span>
+  </div>
+</div>
+
+      </section>
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-12 py-16">
+        <div>
+          <h2
+            class="text-4xl md:text-5xl font-sans font-bold text-primary dark:text-white uppercase leading-none tracking-tight"
+          >
+            <span data-i18n="about">Construyendo Soluciones</span> <br />
+            <span data-i18n="aboutTitle">Escalables e Innovadoras</span>
+          </h2>
+        </div>
+        <div class="space-y-6">
+          <p
+            class="text-xl serif-italic text-primary dark:text-white font-medium" data-i18n="aboutDesc"
+          >
+            Hola, soy Robert, un desarrollador full stack apasionado por crear soluciones digitales de impacto.
+          </p>
+          <div
+            class="text-sm text-accent-gray dark:text-gray-400 space-y-4 leading-relaxed"
+          >
+            <p data-i18n="aboutContent1">
+              Con experiencia en tecnologías modernas y un profundo conocimiento de la arquitectura de software, diseño sistemas que no solo funcionan bien sino que escalan.
+            </p>
+            <p data-i18n="aboutContent2">
+              Ya sea construyendo desde cero o refactorizando aplicaciones existentes, combino estrategia, código limpio y mejores prácticas para llevar ideas al siguiente nivel.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="pb-24">
+        <div class="flex justify-between items-end mb-8">
+          <h2
+            class="text-4xl font-sans font-bold text-primary dark:text-white uppercase tracking-tight" data-i18n="portfolio"
+          >
+            Proyectos
+          </h2>
+          <p
+            class="text-[10px] text-accent-gray max-w-xs text-right hidden md:block" data-i18n="portfolioDesc"
+          >
+            Explora mis recientes creaciones de desarrollo full stack y descubre cómo podemos transformar tu visión en realidad.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Proyecto 1 -->
+          <div
+            class="w-full aspect-video rounded-2xl overflow-hidden relative group"
+            id="proyecto-1"
+            data-project-id="1"
+          >
+            <div
+              class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"
+            ></div>
+            <img
+              alt="Project 1"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+              src="files/kl9.png"
+            />
+            <div
+              class="absolute bottom-6 left-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              <a
+                href="galeria.html?proyecto=1"
+                class="inline-block bg-white text-black px-4 py-2 text-xs font-bold uppercase tracking-widest rounded-full hover:bg-gray-100 transition-colors" data-i18n="viewProject"
+              >
+                Ver Proyecto
+              </a>
+            </div>
+          </div>
+
+          <!-- Proyecto 2 -->
+          <div
+            class="w-full aspect-video rounded-2xl overflow-hidden relative group"
+            id="proyecto-2"
+            data-project-id="2"
+          >
+            <div
+              class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"
+            ></div>
+            <img
+              alt="Project 2"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+              src="files/kl12.png"
+            />
+            <div
+              class="absolute bottom-6 left-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              <a
+                href="galeria.html?proyecto=2"
+                class="inline-block bg-white text-black px-4 py-2 text-xs font-bold uppercase tracking-widest rounded-full hover:bg-gray-100 transition-colors" data-i18n="viewProject"
+              >
+                Ver Proyecto
+              </a>
+            </div>
+          </div>
+
+          <!-- Proyecto 3 -->
+          <div
+            class="w-full aspect-video rounded-2xl overflow-hidden relative group"
+            id="proyecto-3"
+            data-project-id="3"
+          >
+            <div
+              class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"
+            ></div>
+            <img
+              alt="Project 3"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+              src="files/kl13.png"
+            />
+            <div
+              class="absolute bottom-6 left-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              <a
+                href="galeria.html?proyecto=3"
+                class="inline-block bg-white text-black px-4 py-2 text-xs font-bold uppercase tracking-widest rounded-full hover:bg-gray-100 transition-colors" data-i18n="viewProject"
+              >
+                Ver Proyecto
+              </a>
+            </div>
+          </div>
+
+          <!-- Proyecto 4 -->
+          <div
+            class="w-full aspect-video rounded-2xl overflow-hidden relative group"
+            id="proyecto-4"
+            data-project-id="4"
+          >
+            <div
+              class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"
+            ></div>
+            <img
+              alt="Project 4"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+              src="files/kl11.png"
+            />
+            <div
+              class="absolute bottom-6 left-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              <a
+                href="galeria.html?proyecto=4"
+                class="inline-block bg-white text-black px-4 py-2 text-xs font-bold uppercase tracking-widest rounded-full hover:bg-gray-100 transition-colors" data-i18n="viewProject"
+              >
+                Ver Proyecto
+              </a>
+            </div>
+          </div>
+
+          <!-- Proyecto 5 -->
+          <div
+            class="w-full aspect-video rounded-2xl overflow-hidden relative group"
+            id="proyecto-5"
+            data-project-id="5"
+          >
+            <div
+              class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"
+            ></div>
+            <img
+              alt="Project 5"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+              src="files/kl14.png"
+            />
+            <div
+              class="absolute bottom-6 left-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              <a
+                href="galeria.html?proyecto=5"
+                class="inline-block bg-white text-black px-4 py-2 text-xs font-bold uppercase tracking-widest rounded-full hover:bg-gray-100 transition-colors" data-i18n="viewProject"
+              >
+                Ver Proyecto
+              </a>
+            </div>
+          </div>
+
+          <!-- Proyecto 6 -->
+          <div
+            class="w-full aspect-video rounded-2xl overflow-hidden relative group"
+            id="proyecto-6"
+            data-project-id="6"
+          >
+            <div
+              class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"
+            ></div>
+            <img
+              alt="Project 6"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+              src="files/kl15.png"
+            />
+            <div
+              class="absolute bottom-6 left-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              <a
+                href="galeria.html?proyecto=6"
+                class="inline-block bg-white text-black px-4 py-2 text-xs font-bold uppercase tracking-widest rounded-full hover:bg-gray-100 transition-colors" data-i18n="viewProject"
+              >
+                Ver Proyecto
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center mt-12">
+          <a
+            href="galeria.html"
+            class="bg-primary text-white dark:bg-white dark:text-primary pl-6 pr-2 py-3 rounded-full text-xs font-bold tracking-widest uppercase flex items-center gap-3 hover:scale-105 transition-transform" data-i18n="viewGallery"
+          >
+            Ver Galería Completa
+            <div
+              class="w-8 h-8 bg-white dark:bg-primary rounded-full flex items-center justify-center"
+            >
+              <span
+                class="material-icons text-primary dark:text-white text-sm"
+                >arrow_forward</span
+              >
+            </div>
+          </a>
+        </div>`
+        
+      </section>
+      <footer
+        class="py-12 border-t border-gray-300 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center text-xs text-accent-gray gap-4"
+      >
+        <p data-i18n="footerText">© 2024 Robert. Todos los derechos reservados.</p>
+        <div
+          class="flex gap-6 uppercase tracking-wider font-semibold text-primary dark:text-white"
+        >
+          <a class="hover:opacity-60 transition-opacity" href="https://github.com/Paquito207">GitHub</a>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
