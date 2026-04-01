@@ -51,6 +51,8 @@
               "text-light": "#1A1A1A",
               "text-dark": "#E8E8E3",
               "accent-gray": "#7A7A7A",
+              "card-light": "#DDDCD5",   // más oscuro que background-light
+              "card-dark": "#2A2A2A",    // más claro que surface-dark
             },
             fontFamily: {
               sans: ["Inter", "sans-serif"],
@@ -345,7 +347,6 @@
           footerText: "© 2024 Robert. Todos los derechos reservados.",
           featured: "Destacado",
           viewProject: "Ver Proyecto",
-          liveDemo: "Demo",
           repository: "Código",
           status: "Estado",
           client: "Cliente",
@@ -399,7 +400,6 @@
           footerText: "© 2024 Robert. All rights reserved.",
           featured: "Featured",
           viewProject: "View Project",
-          liveDemo: "Demo",
           repository: "Code",
           status: "Status",
           client: "Client",
@@ -453,7 +453,6 @@
           footerText: "© 2024 Robert. Todos os direitos reservados.",
           featured: "Destaque",
           viewProject: "Ver Projeto",
-          liveDemo: "Demo",
           repository: "Código",
           status: "Status",
           client: "Cliente",
@@ -507,7 +506,6 @@
           footerText: "© 2024 Robert. Tous droits réservés.",
           featured: "Vedette",
           viewProject: "Voir le Projet",
-          liveDemo: "Démo",
           repository: "Code",
           status: "Statut",
           client: "Client",
@@ -561,7 +559,6 @@
           footerText: "© 2024 Robert. Alle Rechte vorbehalten.",
           featured: "Empfohlen",
           viewProject: "Projekt anzeigen",
-          liveDemo: "Demo",
           repository: "Code",
           status: "Status",
           client: "Kunde",
@@ -615,7 +612,6 @@
           footerText: "© 2024 Robert. すべての権利が予約されています。",
           featured: "注目",
           viewProject: "プロジェクトを表示",
-          liveDemo: "デモ",
           repository: "コード",
           status: "ステータス",
           client: "クライアント",
@@ -908,7 +904,7 @@
         <!-- Galería de Proyectos -->
         <div id="detailsContainer"></div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectGrid">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectGrid" style="grid-auto-rows: 1fr;">
           <!-- Las tarjetas se generarán dinámicamente con JavaScript -->
         </div>
       </section>
@@ -941,7 +937,7 @@
           category: "frontend",
           gradient: "from-orange-600 to-red-600",
           images: ["files/kl9.png", "files/kl9-1.png", "files/kl9-2.png"],
-          liveUrl: "https://tetsuo-portfolio.example.com",
+          liveUrl: "#",
           repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/TETSUO%20-%20Creative%20Portfolio/163.html"
         },
         2: {
@@ -957,7 +953,7 @@
           category: "frontend",
           gradient: "from-blue-600 to-purple-600",
           images: ["files/kl12.png", "files/kl12-1.png", "files/kl12-2.png"],
-          liveUrl: "https://edura-platform.example.com",
+          liveUrl: "#",
           repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/Edura%20-%20Online%20Education%20Platform/267.html"
         },
         3: {
@@ -973,7 +969,7 @@
           category: "frontend",
           gradient: "from-green-600 to-emerald-600",
           images: ["files/kl13.png", "files/kl13-1.png", "files/kl13-2.png"],
-          liveUrl: "https://bogchabor-decor.example.com",
+          liveUrl: "#",
           repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/Bogchabor%20-%20Tropical%20Interior%20Decor/262.html"
         },
         4: {
@@ -988,8 +984,8 @@
           tech: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
           category: "frontend",
           gradient: "from-blue-900 to-slate-700",
-          images: ["files/kl14.png", "files/kl14-1.png", "files/kl14-2.png"],
-          liveUrl: "https://global-logistics.example.com",
+          images: ["files/kl11.png", "files/kl11-1.png", "files/kl11-2.png"],
+          liveUrl: "#",
           repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/Global%20Logistics%20-%20Freight%20Solutions/243.html"
         },
         5: {
@@ -1004,8 +1000,8 @@
           tech: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
           category: "frontend",
           gradient: "from-slate-700 to-gray-800",
-          images: ["files/kl15.png", "files/kl15-1.png", "files/kl15-2.png"],
-          liveUrl: "https://stoicism-editorial.example.com",
+          images: ["files/kl14.png", "files/kl14-1.png", "files/kl14-2.png"],
+          liveUrl: "#",
           repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/Stoicism%20Philosophy%20Editorial/236.html"
         },
         6: {
@@ -1020,8 +1016,8 @@
           tech: ["Node.js", "AWS S3", "RabbitMQ", "gRPC"],
           category: "frontend",
           gradient: "from-cyan-600 to-blue-600",
-          images: ["files/kl11.png", "files/kl11-1.png", "files/kl11-2.png"],
-          liveUrl: "https://cloudsync.example.com",
+          images: ["files/kl15.png", "files/kl15-1.png", "files/kl15-2.png"],
+          liveUrl: "#",
           repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/CloudSync/291.html"
         },
         7: {
@@ -1037,7 +1033,7 @@
           category: "fullstack",
           gradient: "from-amber-600 to-orange-600",
           images: ["files/kl16.png", "files/kl16-1.png", "files/kl16-2.png"],
-          liveUrl: "https://todo-list-demo.example.com",
+          liveUrl: "#",
           repoUrl: "https://github.com/Paquito207/PRUEBA-TECNICA"
         },
         8: {
@@ -1053,7 +1049,7 @@
           category: "frontend",
           gradient: "from-lime-600 to-green-600",
           images: ["files/kl17.png", "files/kl17-1.png", "files/kl17-2.png"],
-          liveUrl: "https://calculator-app.example.com",
+          liveUrl: "#",
           repoUrl: "https://github.com/Paquito207/CALCULADORA"
         },
         9: {
@@ -1071,7 +1067,7 @@
           images: ["files/hm.png"],
           video: "./files/hommy.mp4",
           liveUrl: "#",
-          repoUrl: ""
+          repoUrl: "#"
         },
         10: {
           name: "API CRUD - Go & Bee Framework",
@@ -1102,7 +1098,7 @@
           category: "frontend",
           gradient: "from-green-600 to-emerald-600",
           images: ["files/kl18.png", "files/kl18-1.png", "files/kl18-2.png"],
-          liveUrl: "https://verdant-life.example.com",
+          liveUrl: "#",
           repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/Verdant%20Life%20-%20Organic%20Lifestyle/118.html"
         },
         12: {
@@ -1118,7 +1114,7 @@
           category: "frontend",
           gradient: "from-teal-600 to-cyan-600",
           images: ["files/kl19.png"],
-          liveUrl: "https://eco-nature-dashboard.example.com",
+          liveUrl: "#",
           repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/Eco-Nature%20Dashboard/275.html"
         },
         13: {
@@ -1134,7 +1130,7 @@
           category: "frontend",
           gradient: "from-orange-600 to-red-600",
           images: ["files/kl20.png", "files/kl20-1.png", "files/kl20-2.png"],
-          liveUrl: "https://tonevan-music.example.com",
+          liveUrl: "#",
           repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/Tonevan%20Music/222.html"
         },
         14: {
@@ -1150,7 +1146,7 @@
           category: "frontend",
           gradient: "from-gray-800 to-black",
           images: ["files/kl21.png", "files/kl21-1.png", "files/kl21-2.png"],
-          liveUrl: "https://novaelle-fashion.example.com",
+          liveUrl: "#",
           repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/NOVAELLE%20-%20%D0%90%D0%B2%D1%82%D0%BE%D1%80%D1%81%D0%BA%D0%B0%D1%8F%20%D0%BE%D0%B4%D0%B5%D0%B6%D0%B4%D0%B0/23.html"
         },
         15: {
@@ -1166,7 +1162,7 @@
           category: "frontend",
           gradient: "from-rose-600 to-pink-600",
           images: ["files/kl22.png", "files/kl22-1.png", "files/kl22-2.png"],
-          liveUrl: "https://peony-flowers.example.com",
+          liveUrl: "#",
           repoUrl: "https://github.com/Paquito207/projects-portafolio/blob/main/Peony%20-%20Special%20Flower%20Bouquet/27.html"
         }
       };
@@ -1198,16 +1194,22 @@
           const imgUrl = project.images[0] || "https://via.placeholder.com/400x300?text=" + project.name;
           
           card.innerHTML = `
-            <img src="${imgUrl}" alt="${project.name}" class="w-full aspect-video object-cover" loading="lazy" />
-            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/5 transition-colors z-10"></div>
-            <div class="absolute top-4 left-4 z-20 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold">#${String(i).padStart(2, '0')}</div>
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 z-20">
-              <h3 class="text-xl font-bold text-white mb-2">#${String(i).padStart(2, '0')}. ${project.name}</h3>
-              <button class="text-white hover:text-yellow-400 transition-colors text-sm font-bold uppercase flex items-center gap-2 view-project-btn">
-                <span data-i18n="viewProject">Ver Proyecto</span>
-                <span class="material-icons text-base">arrow_forward</span>
-              </button>
+            <div class="relative">
+              <img src="${imgUrl}" alt="${project.name}" class="w-full aspect-video object-cover" loading="lazy" />
+              <div class="absolute inset-0 bg-black/20 group-hover:bg-black/5 transition-colors z-10"></div>
+              <div class="absolute top-4 left-4 z-20 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold">#${String(i).padStart(2, '0')}</div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 z-20">
+                <button class="text-white hover:text-yellow-400 transition-colors text-sm font-bold uppercase flex items-center gap-2 view-project-btn">
+                  <span data-i18n="viewProject">Ver Proyecto</span>
+                  <span class="material-icons text-base">arrow_forward</span>
+                </button>
+              </div>
             </div>
+            <div class="p-6 bg-card-light dark:bg-card-dark h-full">
+  <h3 class="text-xl font-bold dark:text-white">
+    #${String(i).padStart(2, '0')}. ${project.name}
+  </h3>
+</div>
           `;
           
           card.addEventListener("click", () => showProjectDetails(i));
@@ -1313,10 +1315,6 @@
 
                 <!-- CTA Buttons -->
                 <div class="flex flex-wrap gap-4 pt-4">
-                  <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-primary text-white dark:bg-white dark:text-primary rounded-full font-bold uppercase text-sm hover:opacity-80 transition-opacity flex items-center gap-2">
-                    <span class="material-icons text-base">language</span>
-                    <span data-i18n="liveDemo">${t.liveDemo}</span>
-                  </a>
                   <a href="${project.repoUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 border-2 border-primary dark:border-white text-primary dark:text-white rounded-full font-bold uppercase text-sm hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-primary transition-colors flex items-center gap-2">
                     <span class="material-icons text-base">code</span>
                     <span data-i18n="repository">${t.repository}</span>
@@ -1325,7 +1323,7 @@
               </div>
 
               <!-- Derecha: Slider de imágenes/Video -->
-              <div class="image-slider w-full aspect-video lg:aspect-square">
+              <div class="image-slider w-full h-[400px] lg:h-[400px]">
                 <div class="slider-container" style="transform: translateX(0%);">
                   ${project.video ? 
                     `<video src="${project.video}" class="slider-slide w-full h-full object-cover" controls controlsList="nodownload" preload="metadata"></video>` 
